@@ -7,25 +7,25 @@
 
 @layer base {
   :root {
-    --background: 42 33% 94%;
-    --foreground: 210 12% 10%;
-    --card: 38 26% 97%;
-    --card-foreground: 210 12% 10%;
-    --popover: 38 26% 97%;
-    --popover-foreground: 210 12% 10%;
-    --primary: 19 90% 51%;
+    --background: 220 38% 92%;
+    --foreground: 221 38% 15%;
+    --card: 220 38% 98%;
+    --card-foreground: 221 38% 15%;
+    --popover: 220 38% 98%;
+    --popover-foreground: 221 38% 15%;
+    --primary: 14 88% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 205 57% 23%;
+    --secondary: 220 44% 46%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 39 16% 86%;
-    --muted-foreground: 215 10% 38%;
-    --accent: 44 92% 55%;
-    --accent-foreground: 210 12% 10%;
+    --muted: 219 38% 76%;
+    --muted-foreground: 218 20% 40%;
+    --accent: 219 38% 76%;
+    --accent-foreground: 221 38% 15%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 35 18% 78%;
-    --input: 35 18% 78%;
-    --ring: 19 90% 51%;
+    --border: 219 38% 76%;
+    --input: 219 38% 76%;
+    --ring: 14 88% 55%;
     --radius: 0.5rem;
   }
 
@@ -49,13 +49,13 @@
 }
 
 @layer utilities {
-  .bg-os-paper { background-color: #ece9e2; }
-  .bg-os-black { background-color: #101010; }
-  .text-os-ink { color: #15171a; }
-  .text-os-muted { color: #5b5d61; }
-  .text-os-orange { color: #f26a21; }
-  .text-os-gold { color: #f0b72f; }
-  .border-os-line { border-color: #d7d0c5; }
+  .bg-os-paper { background-color: #E4E9F3; }
+  .bg-os-black { background-color: #4264A8; }
+  .text-os-ink { color: #172033; }
+  .text-os-muted { color: #516079; }
+  .text-os-orange { color: #F1592A; }
+  .text-os-gold { color: #ABBBD9; }
+  .border-os-line { border-color: #ABBBD9; }
 }
 
 @layer components {
@@ -65,7 +65,7 @@
 
   .site-nav-link::after {
     content: '';
-    @apply absolute bottom-1 left-0 h-0.5 w-0 bg-[#f26a21] transition-all;
+    @apply absolute bottom-1 left-0 h-0.5 w-0 bg-[#F1592A] transition-all;
   }
 
   .site-nav-link-active {
@@ -79,15 +79,15 @@
   .site-button,
   .site-button-secondary,
   .icon-cta {
-    @apply inline-flex min-h-[44px] items-center gap-2 rounded-md px-5 py-3 text-sm font-extrabold transition;
+    @apply inline-flex min-h-[44px] items-center gap-2 rounded-md px-5 py-3 text-sm font-extrabold transition duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .site-button {
-    @apply bg-[#f26a21] text-white shadow-lg shadow-orange-950/20 hover:bg-[#df5514];
+    @apply bg-[#F1592A] text-white shadow-lg shadow-orange-950/20 hover:bg-[#d94a20] hover:shadow-xl hover:shadow-orange-950/30;
   }
 
   .site-button-secondary {
-    @apply border border-[#d7d0c5] bg-white/70 text-os-ink hover:border-[#f26a21] hover:bg-white;
+    @apply border border-[#ABBBD9] bg-white/70 text-os-ink hover:border-[#F1592A] hover:bg-white hover:text-[#F1592A] hover:shadow-lg hover:shadow-blue-950/10;
   }
 
   .site-button-small {
@@ -95,11 +95,25 @@
   }
 
   .icon-cta {
-    @apply justify-center border border-white/15 px-3 text-white hover:bg-white/10;
+    @apply justify-center border border-white/15 px-3 text-white hover:border-[#F1592A] hover:bg-[#F1592A];
   }
 
   .social-link {
-    @apply flex h-10 w-10 items-center justify-center rounded-md bg-white text-os-ink transition hover:bg-[#f0b72f];
+    @apply flex h-10 w-10 items-center justify-center rounded-md border border-transparent bg-white text-os-ink transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#F1592A] hover:bg-white hover:shadow-lg hover:shadow-orange-950/20 active:translate-y-0;
+  }
+
+  .social-icon {
+    @apply block h-5 w-5 bg-os-ink transition duration-200 ease-out;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+  }
+
+  .social-link:hover .social-icon {
+    background-color: #F1592A;
   }
 
   .footer-heading {
@@ -107,7 +121,7 @@
   }
 
   .footer-link {
-    @apply flex items-center gap-2 transition hover:text-white;
+    @apply flex items-center gap-2 transition duration-200 ease-out hover:translate-x-1 hover:text-white;
   }
 
   .section-shell,
@@ -205,7 +219,7 @@
   .trainer-card,
   .fine-print,
   .cta-panel {
-    @apply rounded-md border border-os-line bg-[#f7f3ec] shadow-sm;
+    @apply rounded-md border border-os-line bg-[#f8faff] shadow-sm;
   }
 
   .location-card {
@@ -222,7 +236,7 @@
 
   .tag,
   .pill {
-    @apply inline-flex items-center rounded-md border border-[#d7d0c5] bg-white px-3 py-1 text-xs font-bold text-os-ink;
+    @apply inline-flex items-center rounded-md border border-[#ABBBD9] bg-white px-3 py-1 text-xs font-bold text-os-ink;
   }
 
   .tag {
@@ -230,7 +244,7 @@
   }
 
   .pill {
-    @apply bg-[#fffaf0] text-os-muted;
+    @apply bg-[#eef3fb] text-os-muted;
   }
 
   .section-grid {
@@ -269,7 +283,15 @@
   }
 
   .text-link {
-    @apply mt-5 inline-flex min-h-[44px] items-center gap-2 font-extrabold text-os-orange transition hover:text-os-ink;
+    @apply relative mt-5 inline-flex min-h-[44px] items-center gap-2 font-extrabold text-os-orange transition duration-200 ease-out after:absolute after:bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#F1592A] after:transition-transform after:duration-200 hover:translate-x-1 hover:text-os-ink hover:after:scale-x-100;
+  }
+
+  .contact-link {
+    @apply relative inline-flex w-fit justify-self-start min-h-[32px] items-center gap-2 font-bold text-os-ink transition duration-200 ease-out after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#F1592A] after:transition-transform after:duration-200 hover:translate-x-1 hover:text-os-orange hover:after:scale-x-100;
+  }
+
+  .credit-link {
+    @apply relative inline-flex min-h-[32px] w-fit items-center font-semibold text-white/60 transition duration-200 ease-out after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#F1592A] after:transition-transform after:duration-200 hover:text-white hover:after:scale-x-100;
   }
 
   .dark-band {
@@ -305,7 +327,7 @@
   }
 
   .cta-panel {
-    @apply flex flex-col justify-between gap-6 bg-[#f7f3ec] p-6 md:flex-row md:items-center;
+    @apply flex flex-col justify-between gap-6 bg-[#f8faff] p-6 md:flex-row md:items-center;
   }
 
   .location-detail {
@@ -344,7 +366,7 @@
   }
 
   .training-intro > div {
-    @apply rounded-md border border-os-line bg-[#f7f3ec] p-5;
+    @apply rounded-md border border-os-line bg-[#f8faff] p-5;
   }
 
   .trainer-grid {
@@ -368,7 +390,7 @@
   }
 
   .membership-table {
-    @apply overflow-hidden rounded-md border border-os-line bg-[#f7f3ec];
+    @apply overflow-hidden rounded-md border border-os-line bg-[#f8faff];
   }
 
   .membership-row {
@@ -388,7 +410,7 @@
   }
 
   .popular-badge {
-    @apply mt-3 inline-flex items-center gap-2 rounded-md bg-[#f0b72f] px-3 py-1 text-xs font-black text-os-ink;
+    @apply mt-3 inline-flex items-center gap-2 rounded-md bg-[#ABBBD9] px-3 py-1 text-xs font-black text-os-ink;
   }
 
   .plan-cell strong {
@@ -400,7 +422,7 @@
   }
 
   .plan-cell-featured {
-    @apply bg-[#fff4d6];
+    @apply bg-[#eef3fb];
   }
 
   .pricing-card {
@@ -416,7 +438,7 @@
   }
 
   .check-dot {
-    @apply flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#f0b72f] text-os-ink;
+    @apply flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#ABBBD9] text-os-ink;
   }
 
   .fine-print h2 {
@@ -428,7 +450,7 @@
   }
 
   .schedule-location-card {
-    @apply flex max-w-sm gap-3 rounded-md border border-os-line bg-[#f7f3ec] p-4 text-sm;
+    @apply flex max-w-sm gap-3 rounded-md border border-os-line bg-[#f8faff] p-4 text-sm;
   }
 
   .schedule-location-card p {
@@ -440,7 +462,7 @@
   }
 
   .segmented {
-    @apply inline-flex flex-wrap gap-2 rounded-md border border-os-line bg-[#f7f3ec] p-2;
+    @apply inline-flex flex-wrap gap-2 rounded-md border border-os-line bg-[#f8faff] p-2;
   }
 
   .segmented button {
@@ -460,11 +482,11 @@
   }
 
   .day-column {
-    @apply min-h-[420px] rounded-md border border-os-line bg-[#f7f3ec] p-3;
+    @apply min-h-[420px] rounded-md border border-os-line bg-[#f8faff] p-3;
   }
 
   .day-column.today {
-    @apply border-[#f26a21] bg-[#fff4d6] shadow-lg shadow-orange-950/10;
+    @apply border-[#F1592A] bg-[#eef3fb] shadow-lg shadow-orange-950/10;
   }
 
   .day-heading {
@@ -476,7 +498,7 @@
   }
 
   .day-heading span {
-    @apply ml-auto rounded-md bg-[#f26a21] px-2 py-1 text-xs font-black text-white;
+    @apply ml-auto rounded-md bg-[#F1592A] px-2 py-1 text-xs font-black text-white;
   }
 
   .session-card {

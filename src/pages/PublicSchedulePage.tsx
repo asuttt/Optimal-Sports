@@ -19,9 +19,9 @@ export default function PublicSchedulePage() {
       <section className="page-hero page-hero-row">
         <div>
           <p className="eyebrow">Schedule</p>
-          <h1 className="display-lg">One schedule page, two location views.</h1>
+          <h1 className="display-lg">One schedule page, two location views</h1>
           <p className="page-lede">
-            Dummy classes for now. The important first-pass UX is fast switching between Center City and Newtown, with studio filtering ready for Newtown.
+            Dummy classes for now. The important first-pass UX is fast switching between Center City and Newtown, with studio filtering ready for Newtown
           </p>
         </div>
         <div className="schedule-location-card">
@@ -78,7 +78,7 @@ export default function PublicSchedulePage() {
                     <p>{session[3]} · {session[4]}</p>
                   </div>
                 )) : (
-                  <p className="empty-day">No classes listed.</p>
+                  <p className="empty-day">No classes listed</p>
                 )}
               </div>
             </article>

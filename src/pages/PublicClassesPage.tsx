@@ -3,10 +3,10 @@ import { Activity, Bike, Flame, HeartPulse } from 'lucide-react';
 import { classes, siteImages } from '@/data/optimalSite';
 
 const categories = [
-  { title: 'Strength + Conditioning', icon: Flame, copy: 'Bootcamp, HIIT, Body Blast, circuits, and total-body formats.' },
-  { title: 'Cycle', icon: Bike, copy: 'Rhythm rides, interval sessions, and hybrid cycle-strength classes.' },
-  { title: 'Yoga + Pilates', icon: HeartPulse, copy: 'Mobility, breath, core control, and recovery-focused training.' },
-  { title: 'Active Community', icon: Activity, copy: 'Dance, Silver Sneakers, low-impact options, and class-first energy.' },
+  { title: 'Strength + Conditioning', icon: Flame, copy: 'Bootcamp, HIIT, Body Blast, circuits, and total-body formats' },
+  { title: 'Cycle', icon: Bike, copy: 'Rhythm rides, interval sessions, and hybrid cycle-strength classes' },
+  { title: 'Yoga + Pilates', icon: HeartPulse, copy: 'Mobility, breath, core control, and recovery-focused training' },
+  { title: 'Active Community', icon: Activity, copy: 'Dance, Silver Sneakers, low-impact options, and class-first energy' },
 ];
 
 export default function PublicClassesPage() {
@@ -15,9 +15,9 @@ export default function PublicClassesPage() {
       <section className="split-hero">
         <div>
           <p className="eyebrow">Classes</p>
-          <h1 className="display-lg">Included classes with enough variety to keep members moving.</h1>
+          <h1 className="display-lg">Included classes with enough variety to keep members moving</h1>
           <p className="page-lede">
-            A cleaner class library for the new site, with room to add real descriptions, filters, instructors, and location availability later.
+            A cleaner class library for the new site, with room to add real descriptions, filters, instructors, and location availability later
           </p>
           <Link to="/schedule" className="site-button">View Weekly Schedule</Link>
         </div>
@@ -41,7 +41,7 @@ export default function PublicClassesPage() {
             <h2 className="display-md">Popular formats</h2>
           </div>
           <p className="max-w-lg text-sm leading-6 text-os-muted">
-            This is a starter set based on the existing site. We can add availability, intensity, and location tags in the page-by-page pass.
+            This is a starter set based on the existing site. We can add availability, intensity, and location tags in the page-by-page pass
           </p>
         </div>
         <div className="class-grid">

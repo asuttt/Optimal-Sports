@@ -10,9 +10,9 @@ export default function PublicHomePage() {
         <div className="hero-overlay" />
         <div className="hero-content">
           <p className="eyebrow text-white/80">Philadelphia + Bucks County</p>
-          <h1 className="hero-title">Serious fitness. Serious value.</h1>
+          <h1 className="hero-title">Serious fitness. Serious value</h1>
           <p className="hero-copy">
-            Two Optimal Sport clubs with strength floors, group fitness, personal training, and schedules built around real life.
+            Serious fitness, strong coaching, and two Philadelphia-area clubs built around the way members actually train
           </p>
           <div className="flex flex-wrap gap-3">
             <Link to="/locations" className="site-button">Choose Your Club</Link>
@@ -47,7 +47,8 @@ export default function PublicHomePage() {
                   <div>
                     <p className="mini-label">Address</p>
                     {location.address.map((line) => <p key={line}>{line}</p>)}
-                    <a href={`tel:+1${location.phone.replace(/\D/g, '')}`} className="mt-2 inline-flex items-center gap-2 font-bold">
+                    {location.id === 'newtown' ? <p aria-hidden="true">&nbsp;</p> : null}
+                    <a href={`tel:+1${location.phone.replace(/\D/g, '')}`} className="contact-link mt-2">
                       <Phone className="h-4 w-4" /> {location.phone}
                     </a>
                   </div>
@@ -68,9 +69,9 @@ export default function PublicHomePage() {
       <section className="section-shell section-grid">
         <div>
           <p className="eyebrow">Classes Included</p>
-          <h2 className="display-md">A class lineup with real range.</h2>
+          <h2 className="display-md">A class lineup with real range</h2>
           <p className="section-copy">
-            Newtown leads with a deep multi-studio schedule, while Center City keeps core formats accessible around the workday.
+            Newtown leads with a deep multi-studio schedule, while Center City keeps core formats accessible around the workday
           </p>
           <Link to="/classes" className="text-link">Explore classes <ArrowRight className="h-4 w-4" /></Link>
         </div>
@@ -92,9 +93,9 @@ export default function PublicHomePage() {
           </div>
           <div>
             <p className="eyebrow text-os-gold">Personal Training</p>
-            <h2 className="display-md text-white">Coaching that gives the gym a plan.</h2>
+            <h2 className="display-md text-white">Coaching that gives the gym a plan</h2>
             <p className="section-copy text-white/70">
-              Trainer profiles can become a stronger selling page: location tags, specialties, certs, and quick bios instead of a flat directory.
+              Trainer profiles can become a stronger selling page: location tags, specialties, certs, and quick bios instead of a flat directory
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {trainers.slice(0, 4).map((trainer) => (
@@ -116,7 +117,7 @@ export default function PublicHomePage() {
         <div className="cta-panel">
           <div>
             <p className="eyebrow">Ready to start?</p>
-            <h2 className="display-md">Pick a club, compare plans, or try a pass.</h2>
+            <h2 className="display-md">Pick a club, compare plans, or try a pass</h2>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link to="/memberships" className="site-button">Memberships</Link>

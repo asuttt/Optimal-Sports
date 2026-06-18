@@ -22,12 +22,13 @@ export const locations = [
     name: 'Optimal Sport 1315',
     region: 'Philadelphia',
     address: ['The Philadelphia Building', '1315 Walnut Street', 'Philadelphia, PA 19107'],
+    appleMapsUrl: 'https://maps.apple/p/rA5VsDwvxd79q2',
     phone: '215.735.1114',
     email: 'philadelphia@optimalsport.com',
     hours: ['Mon - Thurs: 5:30am - 11pm', 'Friday: 5:30am - 10pm', 'Saturday: 8am - 8pm', 'Sunday: 8am - 7pm'],
-    summary: 'A downtown training club built for efficient strength work, cardio, personal training, and classes before or after the workday.',
-    highlights: ['Downtown strength floor', 'Personal training', 'Cardio and conditioning', 'Group fitness'],
-    badge: 'Downtown training club',
+    summary: 'Center City training club built for efficient strength work, cardio, personal training, and classes before or after the workday',
+    highlights: ['Strength floor', 'Personal training', 'Cardio and conditioning', 'Group fitness'],
+    badge: 'Urban training oasis',
     image: centerHero,
     images: [centerHero, centerFloor, centerTraining, centerCardio, centerStrength, centerStudio],
   },
@@ -36,12 +37,13 @@ export const locations = [
     shortName: 'Newtown',
     name: 'Optimal Sport Newtown',
     region: 'Bucks County',
-    address: ['828B Newtown-Yardley Rd.', 'Newtown, PA 18940'],
+    address: ['828B Newtown-Yardley Road', 'Newtown, PA 18940'],
+    appleMapsUrl: 'https://maps.apple/p/oUL721DJVYBvEx',
     phone: '215.579.7600',
     email: 'newtown@optimalsport.com',
     hours: ['Mon - Thurs: 5:00am - 10:30pm', 'Friday: 5:00am - 9pm', 'Saturday: 7am - 6pm', 'Sunday: 8am - 5pm'],
-    summary: 'A larger Bucks County club with a deep class schedule, multiple studio formats, training, strength, and community energy.',
-    highlights: ['Three class studios', 'Cycle and yoga', 'Strength training', 'Full weekly schedule'],
+    summary: 'A larger Bucks County club with a deep class schedule, multiple studio formats, training, strength, and community energy',
+    highlights: ['Three studios', 'Cycle and yoga', 'Strength training', 'Full weekly schedule'],
     badge: 'Class-forward club',
     image: newtownHero,
     images: [newtownHero, newtownStudio, newtownStrength, newtownTraining, newtownCycle, newtownFloor, newtownClass, newtownRecovery],
@@ -57,14 +59,14 @@ export const siteImages = {
 };
 
 export const classes = [
-  ['Rhythm Ride', 'Beat-driven cycling with climbs, sprints, and endurance intervals.'],
-  ['Body Blast', 'A full-body strength and conditioning format built for steady progress.'],
-  ['Vinyasa Yoga', 'Flow-based yoga for mobility, control, and breath-led strength.'],
-  ['HIIT Mix', 'Fast-paced intervals using weights, bands, and bodyweight work.'],
-  ['Silver Sneakers', 'Accessible strength, balance, and range-of-motion training.'],
-  ['Zumba', 'Cardio dance training with high energy and easy-to-follow movement.'],
-  ['Pilates', 'Core stability, muscular control, and low-impact strength.'],
-  ['Total Body Bootcamp', 'Athletic conditioning for members who want a harder push.'],
+  ['Rhythm Ride', 'Beat-driven cycling with climbs, sprints, and endurance intervals'],
+  ['Body Blast', 'A full-body strength and conditioning format built for steady progress'],
+  ['Vinyasa Yoga', 'Flow-based yoga for mobility, control, and breath-led strength'],
+  ['HIIT Mix', 'Fast-paced intervals using weights, bands, and bodyweight work'],
+  ['Silver Sneakers', 'Accessible strength, balance, and range-of-motion training'],
+  ['Zumba', 'Cardio dance training with high energy and easy-to-follow movement'],
+  ['Pilates', 'Core stability, muscular control, and low-impact strength'],
+  ['Total Body Bootcamp', 'Athletic conditioning for members who want a harder push'],
 ];
 
 export const trainers = [
@@ -75,7 +77,7 @@ export const trainers = [
     credentials: 'NASM CPT, CES, FNS',
     focus: ['Corrective exercise', 'Strength', 'Nutrition'],
     image: centerTraining,
-    bio: 'Technical coaching for members who want safer movement, stronger lifts, and a plan that fits real life.',
+    bio: 'Technical coaching for members who want safer movement, stronger lifts, and a plan that fits real life',
   },
   {
     name: 'Kristin Noblette',
@@ -84,7 +86,7 @@ export const trainers = [
     credentials: 'Strength and conditioning',
     focus: ['Strength', 'Mobility', 'Accountability'],
     image: centerStrength,
-    bio: 'Focused sessions for building confidence in the weight room and turning workouts into a repeatable habit.',
+    bio: 'Focused sessions for building confidence in the weight room and turning workouts into a repeatable habit',
   },
   {
     name: 'Chris Gilbert',
@@ -93,7 +95,7 @@ export const trainers = [
     credentials: 'CSCS',
     focus: ['Athletic training', 'Programming', 'Leadership'],
     image: newtownTraining,
-    bio: 'Structured coaching for members who want measurable progress and a clear training path.',
+    bio: 'Structured coaching for members who want measurable progress and a clear training path',
   },
   {
     name: 'Savanna Barris',
@@ -102,7 +104,7 @@ export const trainers = [
     credentials: 'Group fitness specialist',
     focus: ['Classes', 'Community', 'Conditioning'],
     image: newtownStudio,
-    bio: 'Class-first energy with programming that keeps the Newtown schedule varied, full, and approachable.',
+    bio: 'Class-first energy with programming that keeps the Newtown schedule varied, full, and approachable',
   },
   {
     name: 'Johanna Blume',
@@ -111,7 +113,7 @@ export const trainers = [
     credentials: 'NASM CPT, CNC',
     focus: ['Adaptive training', 'Nutrition', 'Strength'],
     image: newtownRecovery,
-    bio: 'Supportive coaching for members who need thoughtful progressions, nutrition context, and consistency.',
+    bio: 'Supportive coaching for members who need thoughtful progressions, nutrition context, and consistency',
   },
   {
     name: 'Carrie Allen',
@@ -120,7 +122,7 @@ export const trainers = [
     credentials: 'CSCS, BS Exercise Science',
     focus: ['Strength', 'Technique', 'Performance'],
     image: newtownStrength,
-    bio: 'Evidence-led training with a practical eye for technique, progression, and sustainable performance.',
+    bio: 'Evidence-led training with a practical eye for technique, progression, and sustainable performance',
   },
 ];
 

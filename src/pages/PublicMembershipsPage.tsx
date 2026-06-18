@@ -10,9 +10,9 @@ export default function PublicMembershipsPage() {
       <section className="page-hero page-hero-row">
         <div>
           <p className="eyebrow">Memberships</p>
-          <h1 className="display-lg">Compare plans by location.</h1>
+          <h1 className="display-lg">Compare plans by location</h1>
           <p className="page-lede">
-            Dummy values for now, shaped like the final page so we can refine pricing and offers once the client confirms details.
+            Dummy values for now, shaped like the final page so we can refine pricing and offers once the client confirms details
           </p>
         </div>
         <Link to="/locations" className="site-button">Find Your Club</Link>
@@ -65,7 +65,7 @@ export default function PublicMembershipsPage() {
       <section className="fine-print">
         <h2>Pricing Notes</h2>
         <p>
-          Placeholder pricing and enrollment fees. Add exact membership tiers, annual fees, cancellation policies, corporate/student rates, and any free-pass terms during refinement.
+          Placeholder pricing and enrollment fees. Add exact membership tiers, annual fees, cancellation policies, corporate/student rates, and any free-pass terms during refinement
         </p>
       </section>
     </div>

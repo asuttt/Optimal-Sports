@@ -8,9 +8,9 @@ export default function PublicTrainingPage() {
       <section className="split-hero">
         <div>
           <p className="eyebrow">Training</p>
-          <h1 className="display-lg">Trainer profiles with more context than a directory.</h1>
+          <h1 className="display-lg">Trainer profiles with more context than a directory</h1>
           <p className="page-lede">
-            Editorial cards give each coach a stronger first impression: location, role, credentials, specialties, and a short point of view.
+            Editorial cards give each coach a stronger first impression: location, role, credentials, specialties, and a short point of view
           </p>
           <Link to="/memberships" className="site-button">Start Training</Link>
         </div>
@@ -21,17 +21,17 @@ export default function PublicTrainingPage() {
         <div>
           <Dumbbell className="h-8 w-8 text-os-orange" />
           <h2>Programming</h2>
-          <p>Goal-based sessions, clear progressions, and support for members who want a plan.</p>
+          <p>Goal-based sessions, clear progressions, and support for members who want a plan</p>
         </div>
         <div>
           <Award className="h-8 w-8 text-os-orange" />
           <h2>Credentials</h2>
-          <p>Certification details are surfaced quickly, then expanded into full bios later.</p>
+          <p>Certification details are surfaced quickly, then expanded into full bios later</p>
         </div>
         <div>
           <MapPin className="h-8 w-8 text-os-orange" />
           <h2>Location fit</h2>
-          <p>Trainer cards make it obvious who works in Center City, Newtown, or both.</p>
+          <p>Trainer cards make it obvious who works in Center City, Newtown, or both</p>
         </div>
       </section>
 
