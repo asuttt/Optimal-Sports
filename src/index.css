@@ -33,10 +33,6 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-os-paper text-os-ink antialiased;
     font-family: 'DM Sans', sans-serif;
@@ -59,6 +55,10 @@
 }
 
 @layer components {
+  .page-transition {
+    animation: page-fade-in 240ms ease-out both;
+  }
+
   .site-nav-link {
     @apply relative inline-flex min-h-[44px] items-center text-sm font-bold text-white/70 transition-colors hover:text-white;
   }
@@ -98,22 +98,22 @@
     @apply justify-center border border-white/15 px-3 text-white hover:border-[#F1592A] hover:bg-[#F1592A];
   }
 
+  .nav-icon-cta {
+    @apply h-10 min-h-10 w-10 px-0 py-0;
+  }
+
   .social-link {
-    @apply flex h-10 w-10 items-center justify-center rounded-md border border-transparent bg-white text-os-ink transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#F1592A] hover:bg-white hover:shadow-lg hover:shadow-orange-950/20 active:translate-y-0;
+    @apply flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-[#4264A8] text-white transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#F1592A] hover:bg-[#F1592A] hover:shadow-lg hover:shadow-orange-950/20 active:translate-y-0;
   }
 
   .social-icon {
-    @apply block h-5 w-5 bg-os-ink transition duration-200 ease-out;
+    @apply block h-5 w-5 bg-white transition duration-200 ease-out;
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: contain;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: contain;
-  }
-
-  .social-link:hover .social-icon {
-    background-color: #F1592A;
   }
 
   .footer-heading {
@@ -126,15 +126,19 @@
 
   .section-shell,
   .page-shell {
-    @apply mx-auto max-w-7xl px-5 py-14 lg:px-8;
+    @apply mx-auto max-w-7xl px-5 py-10 lg:px-8;
+  }
+
+  .home-section {
+    @apply py-10;
   }
 
   .page-shell {
-    @apply space-y-14;
+    @apply space-y-10;
   }
 
   .hero-section {
-    @apply relative min-h-[680px] overflow-hidden bg-os-black;
+    @apply relative min-h-[500px] overflow-hidden bg-os-black;
   }
 
   .hero-image {
@@ -147,7 +151,7 @@
   }
 
   .hero-content {
-    @apply relative z-10 mx-auto flex min-h-[680px] max-w-7xl flex-col justify-center px-5 py-24 text-white lg:px-8;
+    @apply relative z-10 mx-auto flex min-h-[500px] max-w-7xl flex-col justify-start px-5 pb-16 pt-20 text-white sm:pt-24 lg:px-8;
   }
 
   .hero-title,
@@ -200,7 +204,7 @@
   }
 
   .split-hero {
-    @apply grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr];
+    @apply grid items-start gap-8 border-b border-os-line pb-10 lg:grid-cols-[0.95fr_1.05fr];
   }
 
   .split-hero img {
@@ -286,8 +290,20 @@
     @apply relative mt-5 inline-flex min-h-[44px] items-center gap-2 font-extrabold text-os-orange transition duration-200 ease-out after:absolute after:bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#F1592A] after:transition-transform after:duration-200 hover:translate-x-1 hover:text-os-ink hover:after:scale-x-100;
   }
 
+  .text-link-dark {
+    @apply text-white hover:text-os-orange;
+  }
+
   .contact-link {
     @apply relative inline-flex w-fit justify-self-start min-h-[32px] items-center gap-2 font-bold text-os-ink transition duration-200 ease-out after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#F1592A] after:transition-transform after:duration-200 hover:translate-x-1 hover:text-os-orange hover:after:scale-x-100;
+  }
+
+  .address-map-link {
+    @apply mt-1 grid w-fit grid-cols-[auto_1fr] gap-2 text-os-ink transition duration-200 ease-out hover:translate-x-1 hover:text-os-orange;
+  }
+
+  .address-map-link span span {
+    @apply block;
   }
 
   .credit-link {
@@ -303,11 +319,11 @@
   }
 
   .image-stack img {
-    @apply h-[360px] w-full rounded-md object-cover;
+    @apply h-[320px] w-full rounded-md object-cover;
   }
 
   .image-stack img:first-child {
-    @apply mt-10;
+    @apply mt-8;
   }
 
   .trainer-mini {
@@ -539,5 +555,21 @@
     .membership-row > div:first-child {
       @apply bg-white/45;
     }
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
   }
 }

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CalendarDays, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, CalendarDays, Mail, MapPin, Phone } from 'lucide-react';
 import { locations, siteImages, classes, trainers } from '@/data/optimalSite';
+import { getMapUrls, openAppleMapsOnApplePlatform } from '@/lib/mapLinks';
 
 export default function PublicHomePage() {
   return (
@@ -14,14 +15,10 @@ export default function PublicHomePage() {
           <p className="hero-copy">
             Serious fitness, strong coaching, and two Philadelphia-area clubs built around the way members actually train
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/locations" className="site-button">Choose Your Club</Link>
-            <Link to="/schedule" className="site-button-secondary bg-white/10 text-white hover:bg-white/20">View Schedule</Link>
-          </div>
         </div>
       </section>
 
-      <section className="section-shell -mt-10 relative z-10">
+      <section className="section-shell home-section relative z-10 pt-10">
         <div className="location-grid">
           {locations.map((location) => (
             <article key={location.id} className="location-card">
@@ -33,32 +30,47 @@ export default function PublicHomePage() {
                     <h2 className="display-sm text-os-orange">{location.shortName}</h2>
                     <p className="mt-1 font-semibold">{location.name}</p>
                   </div>
-                  <span className="tag">{location.badge}</span>
+                  <Link to={`/schedule?location=${location.id}`} className="site-button site-button-small">
+                    <CalendarDays className="h-4 w-4" /> Schedule
+                  </Link>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-os-muted">{location.summary}</p>
-                <div className="mt-5 grid gap-4 border-y border-os-line py-5 text-sm md:grid-cols-2">
-                  <div>
-                    <p className="mini-label">Hours</p>
-                    <p>{location.hours[0]}</p>
-                    <p>{location.hours[1]}</p>
-                    <p>{location.hours[2]}</p>
-                    <p>{location.hours[3]}</p>
+                <div className="mt-5 border-y border-os-line py-4 text-sm">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <p className="mini-label">Hours</p>
+                      <p>{location.hours[0]}</p>
+                      <p>{location.hours[1]}</p>
+                      <p>{location.hours[2]}</p>
+                      <p>{location.hours[3]}</p>
+                    </div>
+                    <div>
+                      <p className="mini-label">Address</p>
+                      <a
+                        href={getMapUrls(location.address.join(' '), location.appleMapsUrl).google}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => openAppleMapsOnApplePlatform(event, location.address.join(' '), location.appleMapsUrl)}
+                        className="address-map-link"
+                      >
+                        <MapPin className="mt-1 h-4 w-4 shrink-0 text-os-orange" />
+                        <span>
+                          {location.address.map((line) => <span key={line}>{line}</span>)}
+                        </span>
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="mini-label">Address</p>
-                    {location.address.map((line) => <p key={line}>{line}</p>)}
-                    {location.id === 'newtown' ? <p aria-hidden="true">&nbsp;</p> : null}
-                    <a href={`tel:+1${location.phone.replace(/\D/g, '')}`} className="contact-link mt-2">
+                  <div className="mt-4 grid gap-2 border-t border-os-line pt-4 sm:grid-cols-2">
+                    <a href={`tel:+1${location.phone.replace(/\D/g, '')}`} className="contact-link">
                       <Phone className="h-4 w-4" /> {location.phone}
+                    </a>
+                    <a href={`mailto:${location.email}`} className="contact-link">
+                      <Mail className="h-4 w-4" /> {location.email}
                     </a>
                   </div>
                 </div>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {location.highlights.map((item) => <span key={item} className="pill">{item}</span>)}
-                </div>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link to="/schedule" className="site-button site-button-small"><CalendarDays className="h-4 w-4" /> Schedule</Link>
-                  <Link to="/memberships" className="site-button-secondary site-button-small">Join {location.shortName}</Link>
                 </div>
               </div>
             </article>
@@ -66,12 +78,12 @@ export default function PublicHomePage() {
         </div>
       </section>
 
-      <section className="section-shell section-grid">
+      <section className="section-shell home-section section-grid pt-8">
         <div>
           <p className="eyebrow">Classes Included</p>
-          <h2 className="display-md">A class lineup with real range</h2>
+          <h2 className="display-md">A class lineup with range</h2>
           <p className="section-copy">
-            Newtown leads with a deep multi-studio schedule, while Center City keeps core formats accessible around the workday
+            Center City keeps core formats accessible throughout the workday, while Newtown offers a comprehensive, multi-studio schedule
           </p>
           <Link to="/classes" className="text-link">Explore classes <ArrowRight className="h-4 w-4" /></Link>
         </div>
@@ -86,16 +98,16 @@ export default function PublicHomePage() {
       </section>
 
       <section className="dark-band">
-        <div className="section-shell section-grid">
+        <div className="section-shell home-section section-grid">
           <div className="image-stack">
             <img src={siteImages.training} alt="" />
             <img src={siteImages.newtownStudio} alt="" />
           </div>
           <div>
             <p className="eyebrow text-os-gold">Personal Training</p>
-            <h2 className="display-md text-white">Coaching that gives the gym a plan</h2>
+            <h2 className="display-md text-white">Coaching that gives you a plan</h2>
             <p className="section-copy text-white/70">
-              Trainer profiles can become a stronger selling page: location tags, specialties, certs, and quick bios instead of a flat directory
+              Check out out team of experienced training professionals
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {trainers.slice(0, 4).map((trainer) => (
@@ -108,12 +120,12 @@ export default function PublicHomePage() {
                 </div>
               ))}
             </div>
-            <Link to="/training" className="site-button mt-6">Meet the Team</Link>
+            <Link to="/training" className="text-link text-link-dark">Meet the Team <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
 
-      <section className="section-shell">
+      <section className="section-shell home-section">
         <div className="cta-panel">
           <div>
             <p className="eyebrow">Ready to start?</p>

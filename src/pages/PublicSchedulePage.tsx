@@ -1,11 +1,18 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { CalendarDays, MapPin } from 'lucide-react';
 import { LocationId, locations, schedule } from '@/data/optimalSite';
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const locationIds = locations.map((location) => location.id);
+
+function getInitialLocation(locationParam: string | null): LocationId {
+  return locationIds.includes(locationParam as LocationId) ? locationParam as LocationId : 'newtown';
+}
 
 export default function PublicSchedulePage() {
-  const [activeLocation, setActiveLocation] = useState<LocationId>('newtown');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeLocation, setActiveLocation] = useState<LocationId>(() => getInitialLocation(searchParams.get('location')));
   const [activeStudio, setActiveStudio] = useState('All');
   const currentDay = useMemo(() => new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(new Date()), []);
   const activeSchedule = schedule[activeLocation];
@@ -13,6 +20,15 @@ export default function PublicSchedulePage() {
   const studios = ['All', ...activeSchedule.studios];
 
   const visibleSessions = activeSchedule.sessions.filter((session) => activeStudio === 'All' || session[3] === activeStudio);
+
+  useEffect(() => {
+    const locationParam = getInitialLocation(searchParams.get('location'));
+
+    if (locationParam !== activeLocation) {
+      setActiveLocation(locationParam);
+      setActiveStudio('All');
+    }
+  }, [activeLocation, searchParams]);
 
   return (
     <div className="page-shell">
@@ -43,6 +59,7 @@ export default function PublicSchedulePage() {
               onClick={() => {
                 setActiveLocation(item.id);
                 setActiveStudio('All');
+                setSearchParams({ location: item.id });
               }}
             >
               {item.shortName}
