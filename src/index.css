@@ -533,73 +533,204 @@
     @apply mt-2 text-sm leading-6 text-os-muted;
   }
 
-  .schedule-location-card {
-    @apply flex max-w-sm gap-3 rounded-md border border-os-line bg-[#f8faff] p-4 text-sm;
+  .schedule-board {
+    @apply overflow-hidden rounded-md border border-os-line bg-[#f8faff] shadow-sm;
   }
 
-  .schedule-location-card p {
-    @apply text-os-muted;
+  .schedule-board-header,
+  .schedule-studio-toolbar {
+    @apply flex flex-col gap-4 border-b border-os-line p-4 md:flex-row md:items-center md:justify-between;
   }
 
-  .schedule-controls {
-    @apply flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between;
+  .schedule-location-toggle {
+    @apply grid grid-cols-2 rounded-md border border-os-line bg-white p-1;
   }
 
-  .segmented {
-    @apply inline-flex flex-wrap gap-2 rounded-md border border-os-line bg-[#f8faff] p-2;
+  .schedule-location-toggle button,
+  .schedule-studio-filter button {
+    @apply rounded-md px-4 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
   }
 
-  .segmented button {
-    @apply rounded-md px-4 py-2 text-sm font-extrabold text-os-muted transition hover:bg-white hover:text-os-ink;
+  .schedule-location-toggle button.active {
+    @apply bg-[#F1592A] text-white shadow-sm;
   }
 
-  .segmented button.active {
-    @apply bg-os-black text-white;
+  .schedule-location-meta {
+    @apply flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-os-muted;
   }
 
-  .segmented-small button {
-    @apply text-xs;
+  .schedule-location-name {
+    @apply font-extrabold text-os-ink;
+  }
+
+  .schedule-map-link {
+    @apply inline-flex items-center gap-1.5 transition duration-200 hover:translate-x-1 hover:text-[#F1592A];
+  }
+
+  .schedule-map-link svg {
+    @apply text-[#F1592A];
+  }
+
+  .schedule-map-link::before {
+    content: '·';
+    @apply mr-2;
+  }
+
+  .schedule-studio-toolbar {
+    @apply bg-white/55 py-3;
+  }
+
+  .schedule-studio-toolbar > p {
+    @apply text-sm font-semibold text-os-muted;
+  }
+
+  .schedule-studio-filter {
+    @apply flex flex-wrap gap-1 rounded-md border border-os-line bg-white p-1;
+  }
+
+  .schedule-studio-filter button {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .schedule-studio-filter button.active {
+    @apply bg-[#F1592A] text-white;
   }
 
   .weekly-schedule {
-    @apply grid gap-3 lg:grid-cols-7;
+    @apply grid gap-3 p-3 md:grid-cols-2 xl:grid-cols-7;
   }
 
   .day-column {
-    @apply min-h-[420px] rounded-md border border-os-line bg-[#f8faff] p-3;
+    @apply min-h-[240px] rounded-md border border-os-line bg-white p-3;
   }
 
   .day-column.today {
-    @apply border-[#F1592A] bg-[#eef3fb] shadow-lg shadow-orange-950/10;
+    @apply border-[#F1592A] bg-[#fff1eb] shadow-lg shadow-orange-950/10;
   }
 
   .day-heading {
-    @apply mb-3 flex min-h-[44px] items-center gap-2 border-b border-os-line pb-3;
+    @apply mb-3 flex min-h-[32px] items-center gap-2 border-b border-os-line pb-3;
   }
 
   .day-heading h2 {
-    @apply font-black;
+    @apply text-sm font-black;
   }
 
   .day-heading span {
-    @apply ml-auto rounded-md bg-[#F1592A] px-2 py-1 text-xs font-black text-white;
+    @apply ml-auto rounded-md bg-[#F1592A] px-2 py-1 text-[10px] font-black uppercase text-white;
+  }
+
+  .schedule-session-list {
+    @apply space-y-2;
   }
 
   .session-card {
-    @apply rounded-md border border-os-line bg-white/70 p-3;
+    @apply rounded-md border border-os-line bg-[#f8faff] p-2.5;
   }
 
   .session-card time {
-    @apply text-xs font-black text-os-orange;
+    @apply text-[11px] font-black text-[#F1592A];
   }
 
   .session-card h3 {
-    @apply mt-1 font-black leading-tight;
+    @apply mt-1 text-sm font-black leading-tight;
   }
 
-  .session-card p,
+  .session-card p {
+    @apply mt-2 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold leading-4 text-os-muted;
+  }
+
+  .session-studio {
+    @apply inline-flex rounded-sm bg-[#F1592A] px-1.5 py-0.5 font-black text-white;
+  }
+
+  .session-studio.studio-2 {
+    @apply bg-[#4264A8];
+  }
+
+  .session-studio.studio-3 {
+    @apply bg-[#ABBBD9] text-os-ink;
+  }
+
   .empty-day {
-    @apply mt-1 text-xs leading-5 text-os-muted;
+    @apply text-xs leading-5 text-os-muted;
+  }
+
+  .schedule-page-center .schedule-board {
+    @apply border-[#172033] bg-[#0d0f13] text-white shadow-blue-950/20;
+  }
+
+  .schedule-page-center .schedule-board-header {
+    @apply border-white/15;
+  }
+
+  .schedule-page-center .schedule-location-toggle {
+    @apply border-white/20 bg-black/25;
+  }
+
+  .schedule-page-center .schedule-location-toggle button {
+    @apply text-white/55 hover:text-white;
+  }
+
+  .schedule-page-center .schedule-location-toggle button.active {
+    @apply bg-[#4264A8] text-white;
+  }
+
+  .schedule-page-center .schedule-location-meta {
+    @apply text-white/55;
+  }
+
+  .schedule-page-center .schedule-location-name {
+    @apply text-white;
+  }
+
+  .schedule-page-center .schedule-map-link {
+    @apply hover:text-white;
+  }
+
+  .schedule-page-center .schedule-map-link svg {
+    @apply text-[#ABBBD9];
+  }
+
+  .schedule-page-center .weekly-schedule {
+    @apply bg-[#080a0d];
+  }
+
+  .schedule-page-center .day-column {
+    @apply border-white/15 bg-[#11151b];
+  }
+
+  .schedule-page-center .day-column.today {
+    @apply border-[#4264A8] bg-[#1c2945] shadow-blue-950/30;
+  }
+
+  .schedule-page-center .day-heading {
+    @apply border-white/15;
+  }
+
+  .schedule-page-center .day-heading h2 {
+    @apply text-white;
+  }
+
+  .schedule-page-center .day-heading svg,
+  .schedule-page-center .session-card time {
+    @apply text-[#ABBBD9];
+  }
+
+  .schedule-page-center .day-heading span {
+    @apply bg-[#4264A8];
+  }
+
+  .schedule-page-center .session-card {
+    @apply border-white/10 bg-black/25;
+  }
+
+  .schedule-page-center .session-card h3 {
+    @apply text-white;
+  }
+
+  .schedule-page-center .empty-day {
+    @apply text-white/45;
   }
 
   @media (max-width: 640px) {

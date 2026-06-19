@@ -39,7 +39,7 @@ export default function PublicFacilityPage() {
                 ))}
               </div>
               <div className="mt-7 flex flex-wrap items-center gap-3">
-                <Link to="/schedule" className={`site-button ${location.id === 'center-city' ? 'location-center-button' : ''}`}>
+                <Link to={`/schedule?location=${location.id}`} className={`site-button ${location.id === 'center-city' ? 'location-center-button' : ''}`}>
                   <CalendarDays className="h-4 w-4" /> Schedule
                 </Link>
                 <Link to="/memberships" className={`text-link !mt-0 ${location.id === 'center-city' ? 'location-center-link' : ''}`}>Memberships <ArrowRight className="h-4 w-4" /></Link>
