@@ -12,6 +12,22 @@ import newtownCycle from '@/assets/Newtown/DSC02667-450x450.jpeg';
 import newtownFloor from '@/assets/Newtown/DSC02702-450x450.jpeg';
 import newtownClass from '@/assets/Newtown/DSC02726-450x450.jpeg';
 import newtownRecovery from '@/assets/Newtown/DSC02748-450x450.jpeg';
+import alexSuilkein from '@/assets/Trainers/Alex Suilkein.jpg';
+import annaSteinStipenyuk from '@/assets/Trainers/Anna Stein-Stipenyuk.jpg';
+import carlaSpence from '@/assets/Trainers/Carla Spence.jpg';
+import carrieAllen from '@/assets/Trainers/Carrie Allen.jpg';
+import chrisGilbert from '@/assets/Trainers/Chris Gilbert.jpg';
+import danParvu from '@/assets/Trainers/Dan Parvu.jpeg';
+import erikStrassman from '@/assets/Trainers/Erik Strassman.jpg';
+import jimHart from '@/assets/Trainers/Jim Hart.jpg';
+import joeMaurer from '@/assets/Trainers/Joe Maurer.jpg';
+import joePatton from '@/assets/Trainers/Joe Patton.jpg';
+import johannaBlume from '@/assets/Trainers/Johanna Blume.jpg';
+import kristinNoblette from '@/assets/Trainers/Kristin Noblette.jpg';
+import laurenRoseman from '@/assets/Trainers/Lauren Roseman.jpg';
+import mikeNeuman from '@/assets/Trainers/Mike Neuman.jpg';
+import mollyCraig from '@/assets/Trainers/Molly Craig.jpeg';
+import savannaBarris from '@/assets/Trainers/Savanna Barris.jpg';
 
 export type LocationId = 'center-city' | 'newtown';
 
@@ -76,53 +92,143 @@ export const trainers = [
     role: 'Personal Trainer',
     credentials: 'NASM CPT, CES, FNS',
     focus: ['Corrective exercise', 'Strength', 'Nutrition'],
-    image: centerTraining,
-    bio: 'Technical coaching for members who want safer movement, stronger lifts, and a plan that fits real life',
+    image: danParvu,
+    bio: 'Specializing in muscle imbalances, weight loss, muscle building, and nutritional counseling',
   },
   {
     name: 'Kristin Noblette',
     location: 'Center City',
-    role: 'Performance Coach',
-    credentials: 'Strength and conditioning',
-    focus: ['Strength', 'Mobility', 'Accountability'],
-    image: centerStrength,
-    bio: 'Focused sessions for building confidence in the weight room and turning workouts into a repeatable habit',
+    role: 'Personal Trainer',
+    credentials: 'Fitness, nutrition, wellness',
+    focus: ['Physique prep', 'Nutrition', 'Functional fitness'],
+    image: kristinNoblette,
+    bio: 'Coaching for physique competitors, pageants, modeling, bridal, and maternity goals with strength, conditioning, and nutrition planning',
+  },
+  {
+    name: 'Alex Suleikin',
+    location: 'Center City',
+    role: 'Personal Trainer',
+    credentials: 'NESTA CPT, Fitness Nutrition Coach',
+    focus: ['Muscle development', 'Weight management', 'Mobility'],
+    image: alexSuilkein,
+    bio: 'A lifelong sports and fitness professional helping members of all ages define, reach, and exceed their fitness goals',
+  },
+  {
+    name: 'Erik Strassman',
+    location: 'Center City',
+    role: 'Personal Trainer',
+    credentials: 'NASM CPT, PES, BioForce HRV, FMS',
+    focus: ['Bodybuilding', 'Strength training', 'Weight loss'],
+    image: erikStrassman,
+    bio: 'Programming-led coaching for members who want goal-based workouts, better performance, and stronger movement quality',
+  },
+  {
+    name: 'Joe Patton',
+    location: 'Center City',
+    role: 'Personal Trainer',
+    credentials: 'Certified personal trainer',
+    focus: ['Strength', 'Physique prep', 'Nutrition'],
+    image: joePatton,
+    bio: 'Goal-based coaching for strength, conditioning, functional training, physique competition prep, and nutritional planning for weight loss or gain',
   },
   {
     name: 'Chris Gilbert',
     location: 'Newtown',
     role: 'Head of Personal Training',
-    credentials: 'CSCS',
-    focus: ['Athletic training', 'Programming', 'Leadership'],
-    image: newtownTraining,
-    bio: 'Structured coaching for members who want measurable progress and a clear training path',
+    credentials: 'CSCS, COO, General Manager',
+    focus: ['Prep', 'Nutrition', 'Transformation'],
+    image: chrisGilbert,
+    bio: 'Structured coaching for event prep, diet, and transformation',
   },
   {
     name: 'Savanna Barris',
     location: 'Newtown',
     role: 'Group Exercise Director',
-    credentials: 'Group fitness specialist',
-    focus: ['Classes', 'Community', 'Conditioning'],
-    image: newtownStudio,
-    bio: 'Class-first energy with programming that keeps the Newtown schedule varied, full, and approachable',
+    credentials: 'ACE Group Exercise Instructor',
+    focus: ['Group exercise', 'Bootcamps', 'Barre'],
+    image: savannaBarris,
+    bio: 'ACE certified group exercise instructor with experience in functional training, boot camps, Zumba, barre, and small-group training',
+  },
+  {
+    name: 'Joe Maurer',
+    location: 'Newtown',
+    role: 'Personal Trainer',
+    credentials: 'Certified personal trainer',
+    focus: ['Strength training', 'Athletic performance', 'Weight loss'],
+    image: joeMaurer,
+    bio: 'Passionate strength and weight-training coach helping members build healthy routines and pursue goals of any size',
   },
   {
     name: 'Johanna Blume',
     location: 'Newtown',
     role: 'Personal Trainer',
-    credentials: 'NASM CPT, CNC',
-    focus: ['Adaptive training', 'Nutrition', 'Strength'],
-    image: newtownRecovery,
-    bio: 'Supportive coaching for members who need thoughtful progressions, nutrition context, and consistency',
+    credentials: 'NASM CPT, CNC, Adaptive Needs Trainer',
+    focus: ['Adaptive training', 'Nutrition', 'Success coaching'],
+    image: johannaBlume,
+    bio: 'NASM trainer and nutrition coach specializing in adaptive training, plan adherence, time management, and self-efficacy',
   },
   {
     name: 'Carrie Allen',
     location: 'Newtown',
     role: 'Strength Coach',
-    credentials: 'CSCS, BS Exercise Science',
-    focus: ['Strength', 'Technique', 'Performance'],
-    image: newtownStrength,
-    bio: 'Evidence-led training with a practical eye for technique, progression, and sustainable performance',
+    credentials: 'CSCS, BS Exercise Science, BS Kinesiology',
+    focus: ['Strength', 'Olympic lifting', 'Athlete development'],
+    image: carrieAllen,
+    bio: 'Exercise science and kinesiology coach with clinical training experience, USA Weightlifting, CrossFit Level 1, and volleyball coaching background',
+  },
+  {
+    name: 'Carla Spence',
+    location: 'Newtown',
+    role: 'Personal Trainer',
+    credentials: 'AAAI Personal Training Certification',
+    focus: ['Functional training', 'Healthy habits', 'Youth strength'],
+    image: carlaSpence,
+    bio: 'Functional training coach helping members reintroduce fitness, pair movement with nutrition, and bring out their inner athlete',
+  },
+  {
+    name: 'Jim Hart',
+    location: 'Center City',
+    role: 'Fitness Coach',
+    credentials: 'Fitness coach and nutritionist',
+    focus: ['Nutrition', 'Lifestyle coaching', 'Meditation'],
+    image: jimHart,
+    bio: 'Fitness coach, nutritionist, meditation practitioner, and chef focused on practical exercise and eating strategies that get consistent results',
+  },
+  {
+    name: 'Lauren Roseman',
+    location: 'Newtown',
+    role: 'Personal Trainer',
+    credentials: 'NSCA',
+    focus: ['Powerlifting', 'Nutrition', 'Accountability'],
+    image: laurenRoseman,
+    bio: 'NSCA coach and elite USA Powerlifting athlete helping teens through seniors build strength, performance, nutrition, and accountability',
+  },
+  {
+    name: 'Mike Neuman',
+    location: 'Newtown',
+    role: 'Personal Trainer',
+    credentials: 'Professional Natural Bodybuilder',
+    focus: ['Macro coaching', 'Contest prep', 'Transformations'],
+    image: mikeNeuman,
+    bio: 'Evidence-based training and nutrition coach specializing in macro coaching, event prep, contest prep, and fitness transformations',
+  },
+  {
+    name: 'Molly Craig',
+    location: 'Newtown',
+    role: 'Personal Trainer',
+    credentials: 'CPT, CPR, AAAI/ISMA',
+    focus: ['Personal training', 'Conditioning', 'Newtown coaching'],
+    image: mollyCraig,
+    bio: 'Certified trainer available at Optimal Sport Newtown for members looking for practical, focused coaching support',
+  },
+  {
+    name: 'Dr. Anna Stein-Tsipenyuk',
+    location: 'Newtown',
+    role: 'Physical Therapist',
+    credentials: 'PT, DPT, CSCS, SFG1, SFMA-1, FRR, PN1',
+    focus: ['Physical therapy', 'Strength', 'Functional movement'],
+    image: annaSteinStipenyuk,
+    bio: 'Doctor of Physical Therapy and strength specialist with training in kettlebells, functional movement assessment, functional range release, and nutrition',
   },
 ];
 

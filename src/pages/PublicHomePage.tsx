@@ -3,6 +3,10 @@ import { ArrowRight, CalendarDays, Mail, MapPin, Phone } from 'lucide-react';
 import { locations, siteImages, classes, trainers } from '@/data/optimalSite';
 import { getMapUrls, openAppleMapsOnApplePlatform } from '@/lib/mapLinks';
 
+const trainerPreview = ['Center City', 'Newtown'].flatMap((location) => (
+  trainers.filter((trainer) => trainer.location === location).slice(0, 2)
+));
+
 export default function PublicHomePage() {
   return (
     <>
@@ -110,12 +114,14 @@ export default function PublicHomePage() {
               Check out out team of experienced training professionals
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {trainers.slice(0, 4).map((trainer) => (
+              {trainerPreview.map((trainer) => (
                 <div key={trainer.name} className="trainer-mini">
                   <img src={trainer.image} alt="" />
                   <div>
                     <h3>{trainer.name}</h3>
-                    <p>{trainer.location} · {trainer.role}</p>
+                    <p>
+                      <span className="font-semibold text-white">{trainer.location}</span> · {trainer.role}
+                    </p>
                   </div>
                 </div>
               ))}

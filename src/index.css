@@ -251,6 +251,14 @@
     @apply bg-[#eef3fb] text-os-muted;
   }
 
+  .pill.trainer-location-center {
+    @apply border-[#ABBBD9] bg-[#eef3fb] text-[#4264A8];
+  }
+
+  .pill.trainer-location-newtown {
+    @apply border-[#F1592A]/30 bg-[#fff0ea] text-[#F1592A];
+  }
+
   .section-grid {
     @apply grid items-start gap-10 lg:grid-cols-[0.78fr_1.22fr];
   }
@@ -291,7 +299,7 @@
   }
 
   .text-link-dark {
-    @apply text-white hover:text-os-orange;
+    @apply text-white hover:text-os-ink;
   }
 
   .contact-link {
@@ -382,7 +390,19 @@
   }
 
   .training-intro > div {
-    @apply rounded-md border border-os-line bg-[#f8faff] p-5;
+    @apply rounded-md border border-os-line bg-[#f8faff] p-4;
+  }
+
+  .training-intro h2 {
+    @apply mt-3;
+  }
+
+  .training-intro p {
+    @apply leading-5;
+  }
+
+  .training-location-tags {
+    @apply mt-3 flex flex-wrap gap-2 text-xs font-black uppercase tracking-wide;
   }
 
   .trainer-grid {
@@ -390,19 +410,47 @@
   }
 
   .trainer-card {
-    @apply grid overflow-hidden sm:grid-cols-[190px_1fr];
+    @apply grid overflow-hidden sm:h-[284px] sm:grid-cols-[190px_minmax(0,1fr)] sm:grid-rows-[minmax(0,1fr)];
   }
 
   .trainer-card > img {
-    @apply h-full min-h-[260px] w-full object-cover;
+    @apply h-[240px] w-full object-cover sm:h-full;
   }
 
   .trainer-card > div {
-    @apply p-5;
+    @apply grid min-h-[240px] grid-rows-[auto_minmax(0,1fr)_auto] gap-3 p-4 sm:min-h-0;
+  }
+
+  .trainer-card-header {
+    @apply grid items-start gap-3 sm:grid-cols-[minmax(0,1fr)_11rem];
+  }
+
+  .trainer-bio {
+    @apply text-sm leading-5 text-os-muted;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+  .trainer-pill-row {
+    @apply flex h-16 flex-wrap content-end items-end gap-1.5 self-end overflow-hidden;
+  }
+
+  .trainer-pill-row .pill {
+    @apply whitespace-nowrap;
   }
 
   .trainer-role {
     @apply mt-1 text-sm font-bold text-os-muted;
+  }
+
+  .trainer-location-center {
+    @apply text-[#4264A8];
+  }
+
+  .trainer-location-newtown {
+    @apply text-[#F1592A];
   }
 
   .membership-table {

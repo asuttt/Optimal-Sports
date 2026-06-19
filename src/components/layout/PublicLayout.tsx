@@ -138,9 +138,9 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
           </div>
           <div className="space-y-3 text-sm text-white/70 md:justify-self-end">
             <h2 className="footer-heading">Start Here</h2>
-            <Link to="/locations" className="footer-link"><MapPin className="h-4 w-4" /> Choose a location</Link>
-            <Link to="/schedule" className="footer-link"><CalendarDays className="h-4 w-4" /> View schedules</Link>
-            <Link to="/training" className="footer-link"><Dumbbell className="h-4 w-4" /> Meet trainers</Link>
+            <Link to="/locations" onClick={(event) => handleSamePageClick(event, '/locations')} className="footer-link"><MapPin className="h-4 w-4" /> Choose a location</Link>
+            <Link to="/schedule" onClick={(event) => handleSamePageClick(event, '/schedule')} className="footer-link"><CalendarDays className="h-4 w-4" /> View schedules</Link>
+            <Link to="/training" onClick={(event) => handleSamePageClick(event, '/training')} className="footer-link"><Dumbbell className="h-4 w-4" /> Meet our trainers</Link>
           </div>
         </div>
         <div className="mx-auto mt-6 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-4 text-xs text-white/45 sm:flex-row sm:justify-between">
@@ -153,7 +153,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
               </a>
             </p>
           </div>
-          <Link to="/privacy-terms" className="credit-link self-start">Privacy & Terms</Link>
+          <Link to="/privacy-terms" onClick={(event) => handleSamePageClick(event, '/privacy-terms')} className="credit-link self-start">Privacy & Terms</Link>
         </div>
       </footer>
     </div>
