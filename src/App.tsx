@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import PublicSchedulePage from "./pages/PublicSchedulePage";
 import PublicHomePage from "./pages/PublicHomePage";
 import PublicFacilityPage from "./pages/PublicFacilityPage";
@@ -38,6 +39,7 @@ function AppRoutes() {
 const App = () => (
   <BrowserRouter>
     <AppRoutes />
+    <Analytics />
   </BrowserRouter>
 );
 

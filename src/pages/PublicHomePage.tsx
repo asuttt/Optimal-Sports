@@ -31,10 +31,10 @@ export default function PublicHomePage() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="eyebrow">{location.region}</p>
-                    <h2 className="display-sm text-os-orange">{location.shortName}</h2>
+                    <h2 className={`display-sm ${location.id === 'center-city' ? 'text-[#4264A8]' : 'text-os-orange'}`}>{location.shortName}</h2>
                     <p className="mt-1 font-semibold">{location.name}</p>
                   </div>
-                  <Link to={`/schedule?location=${location.id}`} className="site-button site-button-small">
+                  <Link to={`/schedule?location=${location.id}`} className={`site-button site-button-small ${location.id === 'center-city' ? 'location-center-button' : ''}`}>
                     <CalendarDays className="h-4 w-4" /> Schedule
                   </Link>
                 </div>
@@ -55,9 +55,9 @@ export default function PublicHomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(event) => openAppleMapsOnApplePlatform(event, location.address.join(' '), location.appleMapsUrl)}
-                        className="address-map-link"
+                        className={`address-map-link ${location.id === 'center-city' ? 'location-center-map-link' : ''}`}
                       >
-                        <MapPin className="mt-1 h-4 w-4 shrink-0 text-os-orange" />
+                        <MapPin className={`mt-1 h-4 w-4 shrink-0 ${location.id === 'center-city' ? 'text-[#4264A8]' : 'text-os-orange'}`} />
                         <span>
                           {location.address.map((line) => <span key={line}>{line}</span>)}
                         </span>
@@ -65,10 +65,10 @@ export default function PublicHomePage() {
                     </div>
                   </div>
                   <div className="mt-4 grid gap-2 border-t border-os-line pt-4 sm:grid-cols-2">
-                    <a href={`tel:+1${location.phone.replace(/\D/g, '')}`} className="contact-link">
+                    <a href={`tel:+1${location.phone.replace(/\D/g, '')}`} className={`contact-link ${location.id === 'center-city' ? 'location-center-contact-link' : ''}`}>
                       <Phone className="h-4 w-4" /> {location.phone}
                     </a>
-                    <a href={`mailto:${location.email}`} className="contact-link">
+                    <a href={`mailto:${location.email}`} className={`contact-link ${location.id === 'center-city' ? 'location-center-contact-link' : ''}`}>
                       <Mail className="h-4 w-4" /> {location.email}
                     </a>
                   </div>
@@ -89,7 +89,7 @@ export default function PublicHomePage() {
           <p className="section-copy">
             Center City keeps core formats accessible throughout the workday, while Newtown offers a comprehensive, multi-studio schedule
           </p>
-          <Link to="/classes" className="text-link">Explore classes <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/classes" className="text-link">Explore Classes <ArrowRight className="h-4 w-4" /></Link>
         </div>
         <div className="feature-list">
           {classes.slice(0, 6).map(([name, description]) => (
