@@ -15,9 +15,9 @@ export default function PublicHomePage() {
         <div className="hero-overlay" />
         <div className="hero-content">
           <p className="eyebrow text-white/80">Philadelphia + Bucks County</p>
-          <h1 className="hero-title">Serious fitness. Serious value</h1>
-          <p className="hero-copy">
-            Serious fitness, strong coaching, and two Philadelphia-area clubs built around the way members actually train
+          <h1 className="hero-title">Built for Better Training</h1>
+          <p className="hero-copy home-hero-copy">
+            Strength, classes, and coaching built for your goals across two Philadelphia-area clubs
           </p>
         </div>
       </section>

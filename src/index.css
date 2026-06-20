@@ -193,6 +193,10 @@
     @apply my-6 text-white/80;
   }
 
+  .home-hero-copy {
+    @apply max-w-lg;
+  }
+
   .eyebrow,
   .mini-label {
     @apply text-xs font-black uppercase text-os-muted;
@@ -450,6 +454,7 @@
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
+    line-clamp: 4;
     -webkit-line-clamp: 4;
   }
 
@@ -473,63 +478,196 @@
     @apply text-[#F1592A];
   }
 
-  .membership-table {
-    @apply overflow-hidden rounded-md border border-os-line bg-[#f8faff];
+  .memberships-heading {
+    @apply flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between;
   }
 
-  .membership-row {
-    @apply grid grid-cols-1 border-b border-os-line last:border-b-0 md:grid-cols-[0.72fr_1fr_1fr];
+  .membership-location-toggle {
+    @apply grid grid-cols-2 rounded-md border border-os-line bg-white p-1;
   }
 
-  .membership-row > div {
-    @apply border-b border-os-line p-5 md:border-b-0 md:border-r md:last:border-r-0;
+  .membership-location-toggle button {
+    @apply rounded-md px-5 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
   }
 
-  .membership-head {
-    @apply bg-white/45;
+  .membership-location-toggle button.active {
+    @apply bg-[#F1592A] text-white shadow-sm;
   }
 
-  .membership-head h2 {
-    @apply text-3xl font-black text-os-orange;
+  .memberships-page-center-city .membership-location-toggle button.active {
+    @apply bg-[#4264A8];
   }
 
-  .popular-badge {
-    @apply mt-3 inline-flex items-center gap-2 rounded-md bg-[#ABBBD9] px-3 py-1 text-xs font-black text-os-ink;
+  .membership-panel {
+    @apply overflow-hidden rounded-md border border-os-line bg-[#f8faff] shadow-sm;
   }
 
-  .plan-cell strong {
-    @apply block text-4xl font-black;
+  .membership-panel-header {
+    @apply flex flex-col gap-5 border-b border-os-line bg-white/60 p-5 lg:flex-row lg:items-end lg:justify-between lg:p-7;
   }
 
-  .plan-cell span {
-    @apply mt-1 block text-sm font-bold text-os-muted;
+  .membership-panel-header .display-md {
+    @apply mt-1 text-[#F1592A];
   }
 
-  .plan-cell-featured {
-    @apply bg-[#eef3fb];
+  .memberships-page-center-city .membership-panel-header .display-md {
+    @apply text-[#4264A8];
   }
 
-  .pricing-card {
-    @apply grid overflow-hidden md:grid-cols-[0.72fr_1fr];
+  .membership-trial {
+    @apply inline-flex max-w-md items-center gap-3 rounded-md border border-[#F1592A] bg-[#fff0eb] px-4 py-3 text-[#F1592A] transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-950/10;
   }
 
-  .pricing-card img {
-    @apply h-full min-h-[320px] w-full object-cover;
+  .membership-trial span {
+    @apply grid gap-0.5 text-sm;
   }
 
-  .pricing-card > div {
-    @apply p-6;
+  .membership-trial strong {
+    @apply font-extrabold;
   }
 
-  .check-dot {
-    @apply flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#ABBBD9] text-os-ink;
+  .membership-trial small {
+    @apply text-sm;
   }
 
-  .fine-print h2 {
-    @apply font-black;
+  .memberships-page-center-city .membership-trial {
+    @apply border-[#4264A8] bg-[#E4E9F3] text-[#4264A8] hover:shadow-blue-950/10;
   }
 
-  .fine-print p {
+  .membership-plan-grid {
+    @apply grid gap-px bg-os-line md:grid-cols-3;
+  }
+
+  .membership-plan-card {
+    @apply relative flex min-h-[240px] flex-col bg-white p-5 lg:p-6;
+  }
+
+  .membership-plan-card h3 {
+    @apply mt-2 text-2xl font-black text-os-ink;
+  }
+
+  .membership-plan-badge {
+    @apply absolute right-5 top-0 inline-flex -translate-y-1/2 items-center gap-1.5 rounded-sm bg-[#F1592A] px-2 py-1 text-xs font-extrabold text-white lg:right-6;
+  }
+
+  .memberships-page-center-city .membership-plan-badge {
+    @apply bg-[#4264A8];
+  }
+
+  .membership-price {
+    @apply mt-6 flex items-end gap-1 text-os-ink;
+  }
+
+  .membership-price strong {
+    @apply text-5xl font-black;
+  }
+
+  .membership-price > span {
+    @apply mb-1 text-base font-bold text-os-muted;
+  }
+
+  .price-cents {
+    @apply ml-0.5 inline-block align-top text-[0.48em] leading-none;
+  }
+
+  .price-suffix {
+    @apply ml-0.5 text-[0.58em];
+  }
+
+  .membership-plan-detail {
+    @apply mt-4 max-w-xs text-sm leading-6 text-os-muted;
+  }
+
+  .membership-promo {
+    @apply grid gap-5 border-t border-os-line bg-[#fff0eb] p-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:p-7;
+  }
+
+  .membership-promo h3 {
+    @apply mt-1 text-xl font-black text-os-ink;
+  }
+
+  .membership-promo > div > p:last-child {
+    @apply mt-1 text-sm leading-6 text-os-muted;
+  }
+
+  .membership-promo-price {
+    @apply text-4xl font-black text-[#F1592A];
+  }
+
+  .memberships-page-center-city .membership-promo {
+    @apply bg-[#E4E9F3];
+  }
+
+  .memberships-page-center-city .membership-promo-price {
+    @apply text-[#4264A8];
+  }
+
+  .membership-panel-action {
+    @apply flex justify-center border-t border-os-line bg-white p-5 lg:p-6;
+  }
+
+  .memberships-page-center-city .membership-panel-action .site-button {
+    @apply bg-[#4264A8] shadow-blue-950/20 hover:bg-[#345693] hover:shadow-blue-950/30;
+  }
+
+  .membership-partner-rates {
+    @apply grid gap-6 rounded-md border border-os-line bg-white p-5 lg:grid-cols-[minmax(0,1fr)_minmax(26rem,0.8fr)] lg:items-center lg:p-7;
+  }
+
+  .membership-partner-heading {
+    @apply flex items-start gap-4;
+  }
+
+  .membership-partner-heading > svg {
+    @apply mt-1 shrink-0 text-[#4264A8];
+  }
+
+  .membership-partner-heading h2 {
+    @apply mt-1 text-2xl font-black text-os-ink;
+  }
+
+  .membership-partner-heading p:last-child {
+    @apply mt-2 text-sm leading-6 text-os-muted;
+  }
+
+  .membership-partner-grid {
+    @apply grid grid-cols-2 divide-x divide-os-line rounded-md border border-os-line bg-[#f8faff];
+  }
+
+  .membership-partner-grid > div {
+    @apply grid gap-2 p-4;
+  }
+
+  .membership-partner-grid > div > span {
+    @apply text-xs font-extrabold uppercase text-os-muted;
+  }
+
+  .membership-partner-grid strong {
+    @apply text-2xl font-black text-[#4264A8];
+  }
+
+  .partner-rate-price {
+    @apply flex items-end gap-1;
+  }
+
+  .partner-rate-price > span {
+    @apply mb-0.5 text-sm font-bold normal-case text-os-muted;
+  }
+
+  .partner-rate-price .price-cents {
+    @apply relative top-[0.6em];
+  }
+
+
+  .membership-notes {
+    @apply border-t border-os-line pt-5;
+  }
+
+  .membership-notes h2 {
+    @apply font-black text-os-ink;
+  }
+
+  .membership-notes p {
     @apply mt-2 text-sm leading-6 text-os-muted;
   }
 
@@ -597,11 +735,11 @@
   }
 
   .weekly-schedule {
-    @apply grid gap-3 p-3 md:grid-cols-2 xl:grid-cols-7;
+    @apply grid gap-3 px-3 pb-3 pt-5 md:grid-cols-2 xl:grid-cols-7;
   }
 
   .day-column {
-    @apply min-h-[240px] rounded-md border border-os-line bg-white p-3;
+    @apply relative min-h-[240px] rounded-md border border-os-line bg-white p-3;
   }
 
   .day-column.today {
@@ -616,8 +754,8 @@
     @apply text-sm font-black;
   }
 
-  .day-heading span {
-    @apply ml-auto rounded-md bg-[#F1592A] px-2 py-1 text-[10px] font-black uppercase text-white;
+  .day-today-badge {
+    @apply absolute right-3 top-0 -translate-y-1/2 rounded-md bg-[#F1592A] px-2 py-1 text-[10px] font-black uppercase text-white;
   }
 
   .schedule-session-list {
@@ -717,7 +855,7 @@
     @apply text-[#ABBBD9];
   }
 
-  .schedule-page-center .day-heading span {
+  .schedule-page-center .day-today-badge {
     @apply bg-[#4264A8];
   }
 

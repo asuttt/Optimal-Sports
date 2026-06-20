@@ -54,7 +54,7 @@ export default function PublicSchedulePage() {
   return (
     <div className={`page-shell schedule-page ${isNewtown ? 'schedule-page-newtown' : 'schedule-page-center'}`}>
       <section className="page-hero schedule-hero">
-        <p className="eyebrow">Class Schedule</p>
+        <p className="eyebrow">Schedule</p>
         <h1 className="display-lg">Find Your Next Class</h1>
       </section>
 
@@ -114,10 +114,10 @@ export default function PublicSchedulePage() {
 
             return (
               <article key={day} className={isToday ? 'day-column today' : 'day-column'}>
+                {isToday ? <span className="day-today-badge">Today</span> : null}
                 <div className="day-heading">
                   <CalendarDays className="h-4 w-4" />
                   <h2>{weekDates[day]}</h2>
-                  {isToday ? <span>Today</span> : null}
                 </div>
                 <div className="schedule-session-list">
                   {sessions.length ? sessions.map((session) => (

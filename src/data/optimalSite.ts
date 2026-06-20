@@ -39,6 +39,8 @@ export const locations = [
     region: 'Philadelphia',
     address: ['The Philadelphia Building', '1315 Walnut Street', 'Philadelphia, PA 19107'],
     appleMapsUrl: 'https://maps.apple/p/rA5VsDwvxd79q2',
+    trialSignupUrl: 'https://forms.club-os.com/signup/optimal/8008',
+    membershipSignupUrl: 'https://www.mymemberaccount.com/member-enrollment/11407?view=offer',
     phone: '215.735.1114',
     email: 'philadelphia@optimalsport.com',
     hours: ['Mon - Thurs: 5:30am - 11pm', 'Friday: 5:30am - 10pm', 'Saturday: 8am - 8pm', 'Sunday: 8am - 7pm'],
@@ -55,6 +57,8 @@ export const locations = [
     region: 'Bucks County',
     address: ['828B Newtown-Yardley Road', 'Newtown, PA 18940'],
     appleMapsUrl: 'https://maps.apple/p/oUL721DJVYBvEx',
+    trialSignupUrl: 'https://forms.club-os.com/signup/optimal/8009',
+    membershipSignupUrl: 'https://www.mymemberaccount.com/member-enrollment/11406/group/8762?view=offer',
     phone: '215.579.7600',
     email: 'newtown@optimalsport.com',
     hours: ['Mon - Thurs: 5:00am - 10:30pm', 'Friday: 5:00am - 9pm', 'Saturday: 7am - 6pm', 'Sunday: 8am - 5pm'],
@@ -297,17 +301,102 @@ export const trainers = [
   },
 ];
 
-export const memberships = {
-  center: [
-    ['Individual', '$69/mo', '$49 enrollment'],
-    ['Couple', '$109/mo', '$79 enrollment'],
-    ['Family', '$139/mo', '$99 enrollment'],
-  ],
-  newtown: [
-    ['Individual', '$79/mo', '$49 enrollment'],
-    ['Couple', '$129/mo', '$79 enrollment'],
-    ['Family', '$159/mo', '$99 enrollment'],
-  ],
+type MembershipPlan = {
+  name: string;
+  payment: string;
+  price: string;
+  cadence?: string;
+  detail: string;
+  badge?: string;
+};
+
+type MembershipLocationPlans = {
+  plans: MembershipPlan[];
+  promo: {
+    label: string;
+    title: string;
+    price: string;
+    detail: string;
+  };
+  partnerRates?: {
+    title: string;
+    detail: string;
+    rates: Array<{ term: string; price: string }>;
+  };
+};
+
+export const membershipPlans: Record<LocationId, MembershipLocationPlans> = {
+  'center-city': {
+    plans: [
+      {
+        name: '12 Month Membership',
+        payment: 'Annual',
+        price: '$49.99',
+        cadence: '/mo',
+        detail: 'A full-year commitment with the club’s best standard monthly rate',
+        badge: 'Best monthly rate',
+      },
+      {
+        name: 'Month to Month',
+        payment: 'Monthly',
+        price: '$59.99',
+        cadence: '/mo',
+        detail: 'Flexible monthly access, no long-term commitment',
+      },
+      {
+        name: 'One Month Membership',
+        payment: 'Paid in full',
+        price: '$120',
+        detail: 'One month of club access, paid in full at sign-up',
+      },
+    ],
+    promo: {
+      label: 'Short-Term',
+      title: 'Three Month Package',
+      price: '$99',
+      detail: 'A simple three-month membership option for the {season} season',
+    },
+    partnerRates: {
+      title: 'Apartment Partner Rates',
+      detail: 'Available to residents of Westbury and Chancellor Apartments',
+      rates: [
+        { term: '12 Month Annual', price: '$29.99/mo' },
+        { term: 'Month to Month', price: '$39.99/mo' },
+      ],
+    },
+  },
+  newtown: {
+    plans: [
+      {
+        name: 'Student (25 & Under)',
+        payment: 'Youth',
+        price: '$59.99',
+        cadence: '/mo',
+        detail: 'A lower monthly rate for students',
+      },
+      {
+        name: '12 Month Membership',
+        payment: 'Annual',
+        price: '$64.99',
+        cadence: '/mo',
+        detail: 'Full club access with a 12-month commitment',
+        badge: 'Best value',
+      },
+      {
+        name: 'Month to Month',
+        payment: 'Monthly',
+        price: '$74.99',
+        cadence: '/mo',
+        detail: 'Flexible membership, cancel any time',
+      },
+    ],
+    promo: {
+      label: 'New Member Offer',
+      title: '$1 Until July 1',
+      price: '$1',
+      detail: 'For new member sign-ups with a 12-month commitment. See full terms',
+    },
+  },
 };
 
 export const schedule = {

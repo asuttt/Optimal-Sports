@@ -6,8 +6,8 @@ export default function PublicFacilityPage() {
   return (
     <div className="page-shell">
       <section className="page-hero">
-        <p className="eyebrow">Two Clubs</p>
-        <h1 className="display-lg">Two Locations, One Mission</h1>
+        <p className="eyebrow">Locations</p>
+        <h1 className="display-lg">Two Clubs, One Goal</h1>
       </section>
 
       <div className="space-y-12">
@@ -42,7 +42,7 @@ export default function PublicFacilityPage() {
                 <Link to={`/schedule?location=${location.id}`} className={`site-button ${location.id === 'center-city' ? 'location-center-button' : ''}`}>
                   <CalendarDays className="h-4 w-4" /> Schedule
                 </Link>
-                <Link to="/memberships" className={`text-link !mt-0 ${location.id === 'center-city' ? 'location-center-link' : ''}`}>Memberships <ArrowRight className="h-4 w-4" /></Link>
+                <Link to={`/memberships?location=${location.id}`} className={`text-link !mt-0 ${location.id === 'center-city' ? 'location-center-link' : ''}`}>Memberships <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </div>
           </section>
