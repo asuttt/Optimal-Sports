@@ -22,7 +22,7 @@ export default function PublicHomePage() {
         </div>
       </section>
 
-      <section className="section-shell home-section relative z-10 pt-10">
+      <section className="section-shell home-section home-locations-section relative z-10">
         <div className="location-grid">
           {locations.map((location) => (
             <article key={location.id} className="location-card">
@@ -82,7 +82,7 @@ export default function PublicHomePage() {
         </div>
       </section>
 
-      <section className="section-shell home-section section-grid pt-8">
+      <section className="section-shell home-section home-classes-section section-grid">
         <div>
           <p className="eyebrow">Classes Included</p>
           <h2 className="display-md">A class lineup with range</h2>

@@ -1,5 +1,4 @@
-@import '@fontsource/bebas-neue';
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -76,6 +75,65 @@
     @apply w-full;
   }
 
+  .mobile-nav-window {
+    @apply absolute inset-x-0 top-0 z-0 border-b border-white/10 bg-os-black pt-20 text-white shadow-2xl shadow-black/25;
+    animation: mobile-nav-in 180ms ease-out both;
+  }
+
+  .mobile-nav-window-inner {
+    @apply mx-auto max-w-7xl px-5 py-5;
+  }
+
+  .mobile-nav-links {
+    @apply flex flex-col gap-1;
+  }
+
+  .mobile-nav-links .site-nav-link {
+    font-family: 'Barlow Condensed', 'DM Sans', sans-serif;
+    @apply min-h-12 items-start pt-1 text-2xl font-bold text-white/70;
+  }
+
+  .mobile-nav-links .site-nav-link::after {
+    @apply hidden;
+  }
+
+  .mobile-nav-link-label {
+    @apply relative inline-flex;
+  }
+
+  .mobile-nav-link-label::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-[#F1592A] transition-all;
+  }
+
+  .mobile-nav-links .site-nav-link-active .mobile-nav-link-label::after {
+    @apply w-full;
+  }
+
+  .mobile-nav-actions {
+    @apply mt-4 grid grid-cols-2 gap-3 border-t border-white/10 pt-5;
+  }
+
+  .mobile-menu-toggle {
+    @apply relative flex h-12 w-12 items-center justify-center text-white transition duration-200 ease-out hover:text-[#E4E9F3];
+  }
+
+  .menu-toggle-icon {
+    @apply absolute h-7 w-7 transition duration-200 ease-out;
+  }
+
+  .menu-toggle-close {
+    @apply scale-75 -rotate-90 opacity-0;
+  }
+
+  .mobile-menu-toggle.is-open .menu-toggle-menu {
+    @apply scale-75 rotate-90 opacity-0;
+  }
+
+  .mobile-menu-toggle.is-open .menu-toggle-close {
+    @apply scale-100 rotate-0 opacity-100;
+  }
+
   .site-button,
   .site-button-secondary,
   .icon-cta {
@@ -137,6 +195,14 @@
     @apply py-10;
   }
 
+  .home-locations-section {
+    @apply pb-5;
+  }
+
+  .home-classes-section {
+    @apply pt-5;
+  }
+
   .page-shell {
     @apply space-y-10;
   }
@@ -158,13 +224,31 @@
     @apply relative z-10 mx-auto flex min-h-[500px] max-w-7xl flex-col justify-start px-5 pb-16 pt-20 text-white sm:pt-24 lg:px-8;
   }
 
+  @media (max-width: 639px) {
+    .hero-section,
+    .hero-content {
+      min-height: 350px;
+    }
+
+    .hero-content {
+      @apply pb-8 pt-14;
+    }
+  }
+
   .hero-title,
   .display-lg,
   .display-md,
   .display-sm {
-    font-family: 'Bebas Neue', 'DM Sans', sans-serif;
+    font-family: 'Barlow Condensed', 'DM Sans', sans-serif;
     letter-spacing: 0;
     line-height: 0.92;
+    font-weight: 700;
+  }
+
+  .hero-title,
+  .display-lg {
+    font-style: italic;
+    font-weight: 800;
   }
 
   .hero-title {
@@ -483,11 +567,11 @@
   }
 
   .membership-location-toggle {
-    @apply grid grid-cols-2 rounded-md border border-os-line bg-white p-1;
+    @apply inline-flex w-fit rounded-md border border-os-line bg-white p-1;
   }
 
   .membership-location-toggle button {
-    @apply rounded-md px-5 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
+    @apply whitespace-nowrap rounded-md px-5 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
   }
 
   .membership-location-toggle button.active {
@@ -681,12 +765,12 @@
   }
 
   .schedule-location-toggle {
-    @apply grid grid-cols-2 rounded-md border border-os-line bg-white p-1;
+    @apply inline-flex w-fit rounded-md border border-os-line bg-white p-1;
   }
 
   .schedule-location-toggle button,
   .schedule-studio-filter button {
-    @apply rounded-md px-4 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
+    @apply whitespace-nowrap rounded-md px-4 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
   }
 
   .schedule-location-toggle button.active {
@@ -893,6 +977,7 @@
       @apply bg-white/45;
     }
   }
+
 }
 
 @keyframes page-fade-in {
@@ -902,6 +987,18 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes mobile-nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

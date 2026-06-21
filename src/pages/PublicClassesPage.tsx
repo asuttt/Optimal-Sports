@@ -14,7 +14,7 @@ export default function PublicClassesPage() {
     <div className="page-shell">
       <section className="page-hero">
         <p className="eyebrow">Classes</p>
-        <h1 className="display-lg">Every workout has a place here</h1>
+        <h1 className="display-lg">More Ways to Move</h1>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
