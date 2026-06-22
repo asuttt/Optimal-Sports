@@ -157,7 +157,13 @@ export default function PublicTrainingPage() {
           onClick={closeProfile}
         >
           <article className="trainer-profile-panel" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="trainer-profile-close" onClick={closeProfile} aria-label="Close trainer profile" autoFocus>
+            <button
+              type="button"
+              className={`trainer-profile-close ${activeTrainer.location === 'Center City' ? 'overlay-close-center' : 'overlay-close-newtown'}`}
+              onClick={closeProfile}
+              aria-label="Close trainer profile"
+              autoFocus
+            >
               <X className="h-5 w-5" aria-hidden="true" />
             </button>
             <img src={activeTrainer.image} alt={`Portrait of ${activeTrainer.name}`} />

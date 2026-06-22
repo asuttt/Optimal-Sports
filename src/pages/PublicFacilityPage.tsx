@@ -4,7 +4,7 @@ import { ArrowRight, CalendarDays, CirclePlay, X } from 'lucide-react';
 import { locations } from '@/data/optimalSite';
 
 export default function PublicFacilityPage() {
-  const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [activeImage, setActiveImage] = useState<{ src: string; locationId: string } | null>(null);
   const [isLightboxClosing, setIsLightboxClosing] = useState(false);
 
   const closeLightbox = useCallback(() => {
@@ -64,7 +64,7 @@ export default function PublicFacilityPage() {
                       aria-label={`View ${location.shortName} photo ${imageIndex + 1}`}
                       onClick={() => {
                         setIsLightboxClosing(false);
-                        setActiveImage(image);
+                        setActiveImage({ src: image, locationId: location.id });
                       }}
                     >
                       <img src={image} alt="" />
@@ -99,10 +99,16 @@ export default function PublicFacilityPage() {
       {activeImage ? (
         <div className={`facility-lightbox ${isLightboxClosing ? 'is-closing' : ''}`} role="dialog" aria-modal="true" aria-label="Expanded facility photo" onClick={closeLightbox}>
           <div className="facility-lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="facility-lightbox-close" aria-label="Close expanded photo" onClick={closeLightbox} autoFocus>
+            <button
+              type="button"
+              className={`facility-lightbox-close ${activeImage.locationId === 'center-city' ? 'overlay-close-center' : 'overlay-close-newtown'}`}
+              aria-label="Close expanded photo"
+              onClick={closeLightbox}
+              autoFocus
+            >
               <X className="h-6 w-6" aria-hidden="true" />
             </button>
-            <img src={activeImage} alt="Expanded facility view" />
+            <img src={activeImage.src} alt="Expanded facility view" />
           </div>
         </div>
       ) : null}
