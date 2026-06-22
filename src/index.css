@@ -242,10 +242,29 @@
     @apply relative z-10 mx-auto flex min-h-[500px] max-w-7xl flex-col justify-start px-5 pb-16 pt-20 text-white sm:pt-24 lg:px-8;
   }
 
+  @media (min-width: 1024px) {
+    .hero-image {
+      inset: 0 0 0 auto;
+      width: min(58%, 58rem);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(90deg, #000 0%, #000 38%, rgb(0 0 0 / 72%) 55%, transparent 78%);
+    }
+  }
+
   @media (max-width: 639px) {
     .hero-section,
     .hero-content {
       min-height: 350px;
+    }
+
+    .hero-image {
+      transform: translateX(25%);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 24%, black);
+      mask-image: linear-gradient(to right, transparent, black 24%, black);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
     }
 
     .hero-content {
@@ -289,6 +308,10 @@
   .page-lede,
   .section-copy {
     @apply max-w-2xl text-base leading-7 text-os-muted sm:text-lg;
+  }
+
+  .section-copy {
+    @apply mt-3;
   }
 
   .hero-copy {

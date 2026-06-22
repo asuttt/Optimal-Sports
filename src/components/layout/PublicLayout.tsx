@@ -12,6 +12,15 @@ const navItems = [
   { to: '/training', label: 'Training' },
 ];
 
+const pageTitles: Record<string, string> = {
+  '/locations': 'Locations',
+  '/classes': 'Classes',
+  '/training': 'Training',
+  '/memberships': 'Memberships',
+  '/schedule': 'Schedule',
+  '/privacy-terms': 'Privacy & Terms',
+};
+
 export default function PublicLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -32,8 +41,10 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
   }, [location.pathname]);
 
   useEffect(() => {
-    document.title = 'Optimal Sport Health Clubs';
-  }, []);
+    const pathname = location.pathname.replace(/\/+$/, '') || '/';
+    const pageTitle = pageTitles[pathname];
+    document.title = pageTitle ? `${pageTitle} | Optimal Sport` : 'Optimal Sport';
+  }, [location.pathname]);
 
   const desktopLinks = (
     <>
