@@ -323,7 +323,7 @@
   }
 
   .location-card-image {
-    @apply h-72 w-full object-cover;
+    @apply h-52 w-full object-cover sm:h-72;
   }
 
   .location-card-body {
@@ -427,7 +427,7 @@
   }
 
   .image-stack {
-    @apply grid grid-cols-2 gap-3;
+    @apply hidden grid-cols-2 gap-3 sm:grid;
   }
 
   .image-stack img {
@@ -462,8 +462,24 @@
     @apply grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start;
   }
 
+  .location-mobile-divider {
+    @apply mb-5 flex items-center gap-3;
+  }
+
+  .location-mobile-divider span {
+    @apply h-px flex-1 bg-os-line;
+  }
+
+  .location-page-hero {
+    @apply border-b-0 lg:border-b;
+  }
+
+  .location-page-shell > .location-page-hero + .location-sections:not([hidden]) {
+    @apply mt-0 lg:mt-10;
+  }
+
   .location-walkthrough-placeholder {
-    @apply flex h-[292px] w-full flex-col items-center justify-center gap-3 rounded-md border border-[#4264A8] bg-[#E4E9F3] px-6 text-center font-extrabold text-[#4264A8] lg:h-[399.5px];
+    @apply flex aspect-video w-full flex-col items-center justify-center gap-3 rounded-md border border-[#4264A8] bg-[#E4E9F3] px-6 text-center font-extrabold text-[#4264A8] lg:h-[399.5px] lg:aspect-auto;
   }
 
   .location-walkthrough-placeholder-newtown {
@@ -474,8 +490,38 @@
     @apply mt-3 grid grid-cols-4 gap-3;
   }
 
+  .location-thumb-button {
+    @apply overflow-hidden rounded-md transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F1592A];
+  }
+
   .location-thumbs img {
-    @apply h-20 w-full rounded-md object-cover;
+    @apply h-20 w-full object-cover;
+  }
+
+  .facility-lightbox {
+    @apply fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/90 p-5;
+    animation: lightbox-fade-in 180ms ease-out both;
+  }
+
+  .facility-lightbox-content {
+    @apply relative max-h-full max-w-full;
+    animation: lightbox-image-in 220ms ease-out both;
+  }
+
+  .facility-lightbox.is-closing {
+    animation: lightbox-fade-out 180ms ease-in both;
+  }
+
+  .facility-lightbox.is-closing .facility-lightbox-content {
+    animation: lightbox-image-out 180ms ease-in both;
+  }
+
+  .facility-lightbox-content img {
+    @apply max-h-[88svh] max-w-full rounded-md object-contain shadow-2xl;
+  }
+
+  .facility-lightbox-close {
+    @apply absolute -right-2 -top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-os-ink shadow-lg transition duration-200 ease-out hover:scale-105 hover:bg-[#F1592A] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
   }
 
   .offer-card,
@@ -483,6 +529,34 @@
   .class-card,
   .fine-print {
     @apply p-5;
+  }
+
+  .category-card:nth-child(even),
+  .class-card:nth-child(even) {
+    @apply bg-[#eef3fb];
+  }
+
+  @media (min-width: 1024px) {
+    .class-card:nth-child(even) {
+      @apply bg-[#f8faff];
+    }
+
+    .class-card:nth-child(8n + 1),
+    .class-card:nth-child(8n + 3),
+    .class-card:nth-child(8n + 6),
+    .class-card:nth-child(8n + 8) {
+      @apply bg-[#eef3fb];
+    }
+  }
+
+  .category-card-heading,
+  .class-card-heading {
+    @apply flex items-center gap-3 sm:block;
+  }
+
+  .category-card-heading h2,
+  .class-card-heading h3 {
+    @apply sm:mt-3;
   }
 
   .class-grid {
@@ -501,8 +575,12 @@
     @apply rounded-md border border-os-line bg-[#f8faff] p-4;
   }
 
+  .training-intro-heading {
+    @apply flex items-center gap-3 md:block;
+  }
+
   .training-intro h2 {
-    @apply mt-3;
+    @apply md:mt-3;
   }
 
   .training-intro p {
@@ -514,11 +592,31 @@
   }
 
   .trainer-grid {
-    @apply lg:grid-cols-2;
+    @apply grid-cols-2 gap-3 sm:grid-cols-1 sm:gap-4 lg:grid-cols-2;
+  }
+
+  .trainer-roster-card {
+    @apply overflow-hidden rounded-md border border-os-line bg-[#f8faff] text-left shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F1592A] sm:hidden;
+  }
+
+  .trainer-roster-card img {
+    @apply aspect-[4/5] w-full object-cover;
+  }
+
+  .trainer-roster-card > div {
+    @apply min-w-0 p-3;
+  }
+
+  .trainer-roster-card h3 {
+    @apply mt-1 text-lg font-black leading-none text-os-ink;
+  }
+
+  .trainer-roster-card > div > p:last-child {
+    @apply mt-2 line-clamp-2 text-xs font-bold leading-4 text-os-muted;
   }
 
   .trainer-card {
-    @apply grid overflow-hidden sm:h-[284px] sm:grid-cols-[190px_minmax(0,1fr)] sm:grid-rows-[minmax(0,1fr)];
+    @apply hidden overflow-hidden sm:grid sm:h-[284px] sm:grid-cols-[190px_minmax(0,1fr)] sm:grid-rows-[minmax(0,1fr)];
   }
 
   .trainer-card > img {
@@ -560,6 +658,53 @@
 
   .trainer-location-newtown {
     @apply text-[#F1592A];
+  }
+
+  .trainer-profile-overlay {
+    @apply fixed inset-0 z-[60] flex items-center bg-slate-950/90 p-3 sm:hidden;
+    animation: lightbox-fade-in 180ms ease-out both;
+  }
+
+  .trainer-profile-overlay.is-closing {
+    animation: lightbox-fade-out 180ms ease-in both;
+  }
+
+  .trainer-profile-panel {
+    @apply relative max-h-[calc(100svh-1.5rem)] w-full overflow-y-auto rounded-md bg-[#f8faff] shadow-2xl;
+    animation: trainer-profile-in 220ms ease-out both;
+  }
+
+  .trainer-profile-overlay.is-closing .trainer-profile-panel {
+    animation: trainer-profile-out 180ms ease-in both;
+  }
+
+  .trainer-profile-panel > img {
+    @apply h-60 w-full object-cover object-[center_20%];
+  }
+
+  .trainer-profile-content {
+    @apply p-5;
+  }
+
+  .trainer-profile-content h2 {
+    font-family: 'Barlow Condensed', 'DM Sans', sans-serif;
+    @apply mt-1 text-4xl font-bold leading-none text-os-ink;
+  }
+
+  .trainer-profile-credentials {
+    @apply mt-4 border-y border-os-line py-3 text-sm font-bold text-os-ink;
+  }
+
+  .trainer-profile-bio {
+    @apply mt-4 text-sm leading-6 text-os-muted;
+  }
+
+  .trainer-profile-pills {
+    @apply mt-5 flex flex-wrap gap-2;
+  }
+
+  .trainer-profile-close {
+    @apply absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-os-ink shadow-lg transition duration-200 ease-out hover:scale-105 hover:bg-[#F1592A] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
   }
 
   .memberships-heading {
@@ -1002,8 +1147,80 @@
   }
 }
 
+@keyframes lightbox-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbox-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lightbox-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes lightbox-image-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes trainer-profile-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes trainer-profile-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .page-transition {
+  .page-transition,
+  .facility-lightbox,
+  .facility-lightbox-content,
+  .trainer-profile-overlay,
+  .trainer-profile-panel {
     animation: none;
   }
 }

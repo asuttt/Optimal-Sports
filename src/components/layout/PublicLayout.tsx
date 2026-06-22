@@ -121,17 +121,17 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
       <main key={location.pathname} className="page-transition">{children}</main>
 
       <footer className="bg-os-black px-5 py-8 text-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 md:gap-6">
-          <div className="flex min-w-0 items-center">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 md:grid-cols-[1.5fr_1fr] md:gap-6">
+          <div className="contents md:flex md:flex-wrap md:items-center md:gap-4">
             <img src={logo} alt="Optimal Sport Health Clubs" draggable={false} className="h-20 select-none object-contain" />
-          </div>
-          <div className="flex shrink-0 -translate-x-3 flex-col gap-2 justify-self-center sm:translate-x-0">
-            <a href="https://www.facebook.com/OptimalSport1315" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link">
-              <span className="social-icon" style={{ maskImage: `url(${fbIcon})`, WebkitMaskImage: `url(${fbIcon})` }} />
-            </a>
-            <a href="https://www.instagram.com/optimalnation/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link">
-              <span className="social-icon" style={{ maskImage: `url(${igIcon})`, WebkitMaskImage: `url(${igIcon})` }} />
-            </a>
+            <div className="flex shrink-0 -translate-x-3 flex-col gap-2 justify-self-center sm:translate-x-0 md:flex-row md:gap-3">
+              <a href="https://www.facebook.com/OptimalSport1315" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link">
+                <span className="social-icon" style={{ maskImage: `url(${fbIcon})`, WebkitMaskImage: `url(${fbIcon})` }} />
+              </a>
+              <a href="https://www.instagram.com/optimalnation/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link">
+                <span className="social-icon" style={{ maskImage: `url(${igIcon})`, WebkitMaskImage: `url(${igIcon})` }} />
+              </a>
+            </div>
           </div>
           <div className="space-y-2 text-sm text-white/70 justify-self-end md:space-y-3">
             <h2 className="footer-heading">Start Here</h2>

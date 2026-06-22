@@ -89,7 +89,9 @@ export default function PublicHomePage() {
           <p className="section-copy">
             Center City keeps core formats accessible throughout the workday, while Newtown offers a comprehensive, multi-studio schedule
           </p>
-          <Link to="/classes" className="text-link">Explore Classes <ArrowRight className="h-4 w-4" /></Link>
+          <div className="flex justify-end lg:block">
+            <Link to="/classes" className="text-link lg:ml-0">Explore Classes <ArrowRight className="h-4 w-4" /></Link>
+          </div>
         </div>
         <div className="feature-list">
           {classes.slice(0, 6).map(([name, description]) => (
@@ -109,7 +111,7 @@ export default function PublicHomePage() {
           </div>
           <div>
             <p className="eyebrow text-os-gold">Personal Training</p>
-            <h2 className="display-md text-white">Coaching that gives you a plan</h2>
+            <h2 className="display-md text-white">Coaching for every need</h2>
             <p className="section-copy text-white/70">
               Check out out team of experienced training professionals
             </p>
@@ -126,7 +128,9 @@ export default function PublicHomePage() {
                 </div>
               ))}
             </div>
-            <Link to="/training" className="text-link text-link-dark">Meet the Team <ArrowRight className="h-4 w-4" /></Link>
+            <div className="flex justify-end lg:block">
+              <Link to="/training" className="text-link text-link-dark lg:ml-0">Meet the Team <ArrowRight className="h-4 w-4" /></Link>
+            </div>
           </div>
         </div>
       </section>
@@ -135,9 +139,9 @@ export default function PublicHomePage() {
         <div className="cta-panel">
           <div>
             <p className="eyebrow">Ready to start?</p>
-            <h2 className="display-md">Pick a club, compare plans, or try a pass</h2>
+            <h2 className="display-md md:max-w-none">Choose your club, then get moving</h2>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 md:translate-y-0 md:shrink-0 md:flex-nowrap md:justify-end">
             <Link to="/memberships" className="site-button">Memberships</Link>
             <Link to="/locations" className="site-button-secondary"><MapPin className="h-4 w-4" /> Locations</Link>
           </div>
