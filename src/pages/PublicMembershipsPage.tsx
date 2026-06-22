@@ -53,7 +53,7 @@ export default function PublicMembershipsPage() {
             <h2 className="display-md">{location.name}</h2>
             <p className="section-copy">Choose the membership tier that fits how you train</p>
           </div>
-          <a href={location.trialSignupUrl} target="_blank" rel="noopener noreferrer" className="membership-trial">
+          <a href={location.trialSignupUrl} target="_blank" rel="noopener noreferrer" className="membership-trial membership-trial-desktop">
             <Sparkles className="h-5 w-5" aria-hidden="true" />
             <span><strong>3-Day Free Trial</strong><small>Start with the club before you commit</small></span>
             <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -81,6 +81,9 @@ export default function PublicMembershipsPage() {
           <p className="membership-promo-price"><FormattedPrice price={plans.promo.price} /></p>
         </aside>
         <footer className="membership-panel-action">
+          <a href={location.trialSignupUrl} target="_blank" rel="noopener noreferrer" className="membership-trial-compact sm:hidden">
+            <Sparkles className="h-4 w-4" aria-hidden="true" /> 3-Day Trial
+          </a>
           <a href={location.membershipSignupUrl} target="_blank" rel="noopener noreferrer" className="site-button">
             Sign Up <ArrowRight className="h-4 w-4" />
           </a>

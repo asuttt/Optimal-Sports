@@ -8,6 +8,7 @@ const trainerLocationClass = (location: string) => (
 
 const trainerLocations = ['Center City', 'Newtown'] as const;
 type Trainer = (typeof trainers)[number];
+const rosterTopAlignedTrainers = new Set(['Savanna Barris', 'Mike Neuman', 'Molly Craig']);
 
 function TrainerCard({ trainer }: { trainer: Trainer }) {
   return (
@@ -36,7 +37,11 @@ function TrainerCard({ trainer }: { trainer: Trainer }) {
 function TrainerRosterCard({ trainer, onSelect }: { trainer: Trainer; onSelect: () => void }) {
   return (
     <button type="button" className="trainer-roster-card" onClick={onSelect} aria-label={`View ${trainer.name}'s profile`}>
-      <img src={trainer.image} alt={`Portrait of ${trainer.name}`} />
+      <img
+        src={trainer.image}
+        alt={`Portrait of ${trainer.name}`}
+        className={rosterTopAlignedTrainers.has(trainer.name) ? 'trainer-roster-image-top' : undefined}
+      />
       <div>
         <p className={`eyebrow ${trainerLocationClass(trainer.location)}`}>{trainer.location}</p>
         <h3>{trainer.name}</h3>

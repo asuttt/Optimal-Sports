@@ -89,7 +89,7 @@ export default function PublicHomePage() {
           <p className="section-copy">
             Center City keeps core formats accessible throughout the workday, while Newtown offers a comprehensive, multi-studio schedule
           </p>
-          <div className="flex justify-end lg:block">
+          <div className="home-section-trigger hidden lg:block">
             <Link to="/classes" className="text-link lg:ml-0">Explore Classes <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
@@ -101,10 +101,13 @@ export default function PublicHomePage() {
             </div>
           ))}
         </div>
+        <div className="home-class-list-trigger flex justify-end lg:hidden">
+          <Link to="/classes" className="text-link">Explore Classes <ArrowRight className="h-4 w-4" /></Link>
+        </div>
       </section>
 
       <section className="dark-band">
-        <div className="section-shell home-section section-grid">
+        <div className="section-shell home-section home-training-section section-grid">
           <div className="image-stack">
             <img src={siteImages.training} alt="" />
             <img src={siteImages.newtownStudio} alt="" />
@@ -128,7 +131,7 @@ export default function PublicHomePage() {
                 </div>
               ))}
             </div>
-            <div className="flex justify-end lg:block">
+            <div className="home-section-trigger flex justify-end lg:block">
               <Link to="/training" className="text-link text-link-dark lg:ml-0">Meet the Team <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>

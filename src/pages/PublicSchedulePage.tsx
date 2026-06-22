@@ -35,6 +35,8 @@ export default function PublicSchedulePage() {
   const isNewtown = activeLocation === 'newtown';
   const studios = ['All', ...activeSchedule.studios];
   const visibleSessions = activeSchedule.sessions.filter((session) => activeStudio === 'All' || session[3] === activeStudio);
+  const currentDayIndex = days.indexOf(currentDay);
+  const mobileDays = [...days.slice(currentDayIndex), ...days.slice(0, currentDayIndex)];
 
   useEffect(() => {
     const locationParam = getInitialLocation(searchParams.get('location'));
@@ -51,6 +53,57 @@ export default function PublicSchedulePage() {
     setSearchParams({ location: locationId });
   }
 
+  function renderLocationToggle(className?: string) {
+    return (
+      <div className={`schedule-location-toggle ${className ?? ''}`} role="tablist" aria-label="Schedule location">
+        {locations.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            className={activeLocation === item.id ? 'active' : ''}
+            role="tab"
+            aria-selected={activeLocation === item.id}
+            onClick={() => selectLocation(item.id)}
+          >
+            {item.shortName}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  function renderDay(day: string, isPast = false) {
+    const sessions = visibleSessions.filter((session) => session[0] === day);
+    const isToday = day === currentDay;
+    const classes = [isToday ? 'today' : '', isPast ? 'past' : ''].filter(Boolean).join(' ');
+
+    return (
+      <article key={day} className={`day-column ${classes}`}>
+        {isToday ? <span className="day-today-badge">Today</span> : null}
+        <div className="day-heading">
+          <CalendarDays className="h-4 w-4" />
+          <h2>{weekDates[day]}</h2>
+        </div>
+        <div className="schedule-session-list">
+          {sessions.length ? sessions.map((session) => (
+            <div key={`${session[0]}-${session[1]}-${session[2]}-${session[3]}`} className="session-card">
+              <time>{session[1]}</time>
+              <h3>{session[2]}</h3>
+              {isNewtown ? (
+                <p>
+                  <span className={`session-studio ${session[3].toLowerCase().replace(' ', '-')}`}>{session[3]}</span>
+                  <span>{session[4]}</span>
+                </p>
+              ) : null}
+            </div>
+          )) : (
+            <p className="empty-day">No classes listed</p>
+          )}
+        </div>
+      </article>
+    );
+  }
+
   return (
     <div className={`page-shell schedule-page ${isNewtown ? 'schedule-page-newtown' : 'schedule-page-center'}`}>
       <section className="page-hero schedule-hero">
@@ -58,22 +111,11 @@ export default function PublicSchedulePage() {
         <h1 className="display-lg">Find Your Next Class</h1>
       </section>
 
+      {renderLocationToggle('schedule-mobile-location-toggle')}
+
       <section className="schedule-board" aria-label="Weekly class schedule">
         <header className="schedule-board-header">
-          <div className="schedule-location-toggle" role="tablist" aria-label="Schedule location">
-            {locations.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className={activeLocation === item.id ? 'active' : ''}
-                role="tab"
-                aria-selected={activeLocation === item.id}
-                onClick={() => selectLocation(item.id)}
-              >
-                {item.shortName}
-              </button>
-            ))}
-          </div>
+          {renderLocationToggle()}
           <div className="schedule-location-meta">
             <span className="schedule-location-name">{location.name}</span>
             <a
@@ -107,37 +149,11 @@ export default function PublicSchedulePage() {
           </div>
         ) : null}
 
-        <div className="weekly-schedule">
-          {days.map((day) => {
-            const sessions = visibleSessions.filter((session) => session[0] === day);
-            const isToday = day === currentDay;
-
-            return (
-              <article key={day} className={isToday ? 'day-column today' : 'day-column'}>
-                {isToday ? <span className="day-today-badge">Today</span> : null}
-                <div className="day-heading">
-                  <CalendarDays className="h-4 w-4" />
-                  <h2>{weekDates[day]}</h2>
-                </div>
-                <div className="schedule-session-list">
-                  {sessions.length ? sessions.map((session) => (
-                    <div key={`${session[0]}-${session[1]}-${session[2]}-${session[3]}`} className="session-card">
-                      <time>{session[1]}</time>
-                      <h3>{session[2]}</h3>
-                      {isNewtown ? (
-                        <p>
-                          <span className={`session-studio ${session[3].toLowerCase().replace(' ', '-')}`}>{session[3]}</span>
-                          <span>{session[4]}</span>
-                        </p>
-                      ) : null}
-                    </div>
-                  )) : (
-                    <p className="empty-day">No classes listed</p>
-                  )}
-                </div>
-              </article>
-            );
-          })}
+        <div className="weekly-schedule schedule-mobile-days">
+          {mobileDays.map((day) => renderDay(day, days.indexOf(day) < currentDayIndex))}
+        </div>
+        <div className="weekly-schedule schedule-desktop-days">
+          {days.map((day) => renderDay(day))}
         </div>
       </section>
     </div>

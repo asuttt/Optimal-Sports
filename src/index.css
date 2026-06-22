@@ -30,6 +30,12 @@
 
   * {
     @apply border-border;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
   }
 
   body {
@@ -200,7 +206,19 @@
   }
 
   .home-classes-section {
-    @apply pt-5;
+    @apply gap-3 pb-6 pt-5 sm:gap-10 sm:pb-10;
+  }
+
+  .home-training-section {
+    @apply pb-6 sm:pb-10;
+  }
+
+  .home-section-trigger .text-link {
+    @apply !mt-3 sm:!mt-5;
+  }
+
+  .home-class-list-trigger .text-link {
+    @apply !mt-0;
   }
 
   .page-shell {
@@ -600,7 +618,11 @@
   }
 
   .trainer-roster-card img {
-    @apply aspect-[4/5] w-full object-cover;
+    @apply block aspect-[4/5] w-full object-cover;
+  }
+
+  .trainer-roster-card img.trainer-roster-image-top {
+    @apply -translate-y-1 scale-[1.06] object-[center_20%];
   }
 
   .trainer-roster-card > div {
@@ -747,6 +769,10 @@
     @apply inline-flex max-w-md items-center gap-3 rounded-md border border-[#F1592A] bg-[#fff0eb] px-4 py-3 text-[#F1592A] transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-950/10;
   }
 
+  .membership-trial-desktop {
+    @apply hidden sm:inline-flex;
+  }
+
   .membership-trial span {
     @apply grid gap-0.5 text-sm;
   }
@@ -832,11 +858,19 @@
   }
 
   .membership-panel-action {
-    @apply flex justify-center border-t border-os-line bg-white p-5 lg:p-6;
+    @apply flex items-center justify-center gap-3 border-t border-os-line bg-white p-5 lg:p-6;
+  }
+
+  .membership-trial-compact {
+    @apply inline-flex min-h-[44px] items-center gap-2 rounded-md border border-[#F1592A] bg-[#fff0eb] px-4 text-sm font-extrabold text-[#F1592A] transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-950/10;
   }
 
   .memberships-page-center-city .membership-panel-action .site-button {
     @apply bg-[#4264A8] shadow-blue-950/20 hover:bg-[#345693] hover:shadow-blue-950/30;
+  }
+
+  .memberships-page-center-city .membership-trial-compact {
+    @apply border-[#4264A8] bg-[#E4E9F3] text-[#4264A8] hover:shadow-blue-950/10;
   }
 
   .membership-partner-rates {
@@ -909,6 +943,10 @@
     @apply flex flex-col gap-4 border-b border-os-line p-4 md:flex-row md:items-center md:justify-between;
   }
 
+  .schedule-board-header {
+    @apply hidden sm:flex;
+  }
+
   .schedule-location-toggle {
     @apply inline-flex w-fit rounded-md border border-os-line bg-white p-1;
   }
@@ -920,6 +958,18 @@
 
   .schedule-location-toggle button.active {
     @apply bg-[#F1592A] text-white shadow-sm;
+  }
+
+  .schedule-mobile-location-toggle {
+    @apply mb-5 sm:hidden;
+  }
+
+  .schedule-page > .schedule-mobile-location-toggle {
+    @apply !mt-5;
+  }
+
+  .schedule-hero {
+    @apply border-b-0 pb-0 sm:border-b sm:pb-10;
   }
 
   .schedule-location-meta {
@@ -967,12 +1017,24 @@
     @apply grid gap-3 px-3 pb-3 pt-5 md:grid-cols-2 xl:grid-cols-7;
   }
 
+  .schedule-mobile-days {
+    @apply sm:hidden;
+  }
+
+  .schedule-desktop-days {
+    @apply hidden sm:grid;
+  }
+
   .day-column {
     @apply relative min-h-[240px] rounded-md border border-os-line bg-white p-3;
   }
 
   .day-column.today {
     @apply border-[#F1592A] bg-[#fff1eb] shadow-lg shadow-orange-950/10;
+  }
+
+  .day-column.past {
+    @apply border-slate-200 bg-slate-50 opacity-60;
   }
 
   .day-heading {
@@ -1024,19 +1086,19 @@
   }
 
   .schedule-page-center .schedule-board {
-    @apply border-[#172033] bg-[#0d0f13] text-white shadow-blue-950/20;
+    @apply border-[#4264A8] bg-[#f8faff] text-os-ink shadow-blue-950/10;
   }
 
   .schedule-page-center .schedule-board-header {
-    @apply border-white/15;
+    @apply border-[#ABBBD9];
   }
 
   .schedule-page-center .schedule-location-toggle {
-    @apply border-white/20 bg-black/25;
+    @apply border-[#ABBBD9] bg-white;
   }
 
   .schedule-page-center .schedule-location-toggle button {
-    @apply text-white/55 hover:text-white;
+    @apply text-os-muted hover:text-os-ink;
   }
 
   .schedule-page-center .schedule-location-toggle button.active {
@@ -1044,15 +1106,15 @@
   }
 
   .schedule-page-center .schedule-location-meta {
-    @apply text-white/55;
+    @apply text-os-muted;
   }
 
   .schedule-page-center .schedule-location-name {
-    @apply text-white;
+    @apply text-os-ink;
   }
 
   .schedule-page-center .schedule-map-link {
-    @apply hover:text-white;
+    @apply hover:text-[#4264A8];
   }
 
   .schedule-page-center .schedule-map-link svg {
@@ -1060,23 +1122,27 @@
   }
 
   .schedule-page-center .weekly-schedule {
-    @apply bg-[#080a0d];
+    @apply bg-[#E4E9F3]/50;
   }
 
   .schedule-page-center .day-column {
-    @apply border-white/15 bg-[#11151b];
+    @apply border-[#ABBBD9] bg-white;
   }
 
   .schedule-page-center .day-column.today {
-    @apply border-[#4264A8] bg-[#1c2945] shadow-blue-950/30;
+    @apply border-[#4264A8] bg-[#E4E9F3] shadow-blue-950/10;
+  }
+
+  .schedule-page-center .day-column.past {
+    @apply border-[#ABBBD9] bg-[#f8faff] opacity-55;
   }
 
   .schedule-page-center .day-heading {
-    @apply border-white/15;
+    @apply border-[#ABBBD9];
   }
 
   .schedule-page-center .day-heading h2 {
-    @apply text-white;
+    @apply text-os-ink;
   }
 
   .schedule-page-center .day-heading svg,
@@ -1089,15 +1155,15 @@
   }
 
   .schedule-page-center .session-card {
-    @apply border-white/10 bg-black/25;
+    @apply border-[#F1592A]/30 bg-[#fff0eb];
   }
 
   .schedule-page-center .session-card h3 {
-    @apply text-white;
+    @apply text-os-ink;
   }
 
   .schedule-page-center .empty-day {
-    @apply text-white/45;
+    @apply text-os-muted;
   }
 
   @media (max-width: 640px) {
@@ -1120,6 +1186,30 @@
 
     .membership-row > div:first-child {
       @apply bg-white/45;
+    }
+
+    .membership-plan-card {
+      @apply min-h-[184px] p-3.5;
+    }
+
+    .membership-plan-card h3 {
+      @apply mt-1 text-xl;
+    }
+
+    .membership-price {
+      @apply mt-3;
+    }
+
+    .membership-price strong {
+      @apply text-4xl;
+    }
+
+    .membership-plan-detail {
+      @apply mt-2 leading-5;
+    }
+
+    .membership-plan-badge {
+      @apply right-3.5;
     }
   }
 
