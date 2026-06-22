@@ -131,7 +131,7 @@ export default function PublicHomePage() {
                 </div>
               ))}
             </div>
-            <div className="home-section-trigger flex justify-end lg:block">
+            <div className="home-section-trigger flex justify-end">
               <Link to="/training" className="text-link text-link-dark lg:ml-0">Meet the Team <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>

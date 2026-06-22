@@ -106,16 +106,16 @@ export default function PublicSchedulePage() {
 
   return (
     <div className={`page-shell schedule-page ${isNewtown ? 'schedule-page-newtown' : 'schedule-page-center'}`}>
-      <section className="page-hero schedule-hero">
-        <p className="eyebrow">Schedule</p>
-        <h1 className="display-lg">Find Your Next Class</h1>
+      <section className="schedule-heading">
+        <div>
+          <p className="eyebrow">Schedule</p>
+          <h1 className="display-lg">Find Your Next Class</h1>
+        </div>
+        {renderLocationToggle()}
       </section>
-
-      {renderLocationToggle('schedule-mobile-location-toggle')}
 
       <section className="schedule-board" aria-label="Weekly class schedule">
         <header className="schedule-board-header">
-          {renderLocationToggle()}
           <div className="schedule-location-meta">
             <span className="schedule-location-name">{location.name}</span>
             <a

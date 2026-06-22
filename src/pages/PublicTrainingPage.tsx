@@ -82,9 +82,9 @@ export default function PublicTrainingPage() {
   return (
     <>
       <div className="page-shell">
-        <section>
+        <section className="page-hero">
           <p className="eyebrow">Training</p>
-          <h1 className="display-lg">Specialized support across Center City and Newtown</h1>
+          <h1 className="display-lg">Specialized Training Support</h1>
         </section>
 
         <section className="training-intro">

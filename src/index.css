@@ -511,12 +511,24 @@
     @apply h-px flex-1 bg-os-line;
   }
 
+  .location-desktop-divider {
+    @apply mb-5 mt-10 hidden items-center gap-3 lg:flex;
+  }
+
+  .location-desktop-divider span {
+    @apply h-px flex-1 bg-os-line;
+  }
+
+  .location-page-hero .location-desktop-divider {
+    @apply mb-0 mt-8;
+  }
+
   .location-page-hero {
-    @apply border-b-0 lg:border-b;
+    @apply border-b-0 lg:pb-0;
   }
 
   .location-page-shell > .location-page-hero + .location-sections:not([hidden]) {
-    @apply mt-0 lg:mt-10;
+    @apply mt-0 lg:mt-5;
   }
 
   .location-walkthrough-placeholder {
@@ -975,32 +987,27 @@
   }
 
   .schedule-board-header {
-    @apply hidden sm:flex;
+    @apply hidden sm:flex md:justify-end;
+  }
+
+  .schedule-heading {
+    @apply flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between;
   }
 
   .schedule-location-toggle {
     @apply inline-flex w-fit rounded-md border border-os-line bg-white p-1;
   }
 
-  .schedule-location-toggle button,
+  .schedule-location-toggle button {
+    @apply whitespace-nowrap rounded-md px-5 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
+  }
+
   .schedule-studio-filter button {
     @apply whitespace-nowrap rounded-md px-4 py-2 text-sm font-extrabold text-os-muted transition duration-200 hover:text-os-ink;
   }
 
   .schedule-location-toggle button.active {
     @apply bg-[#F1592A] text-white shadow-sm;
-  }
-
-  .schedule-mobile-location-toggle {
-    @apply mb-5 sm:hidden;
-  }
-
-  .schedule-page > .schedule-mobile-location-toggle {
-    @apply !mt-5;
-  }
-
-  .schedule-hero {
-    @apply border-b-0 pb-0 sm:border-b sm:pb-10;
   }
 
   .schedule-location-meta {

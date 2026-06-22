@@ -36,11 +36,21 @@ export default function PublicFacilityPage() {
       <section className="page-hero location-page-hero">
         <p className="eyebrow">Locations</p>
         <h1 className="display-lg">Two Clubs, One Goal</h1>
+        <div className="location-desktop-divider">
+          <p className="eyebrow trainer-location-center">Center City</p>
+          <span />
+        </div>
       </section>
 
       <div className="location-sections space-y-10 lg:space-y-12">
         {locations.map((location, index) => (
           <section key={location.id}>
+            {index > 0 ? (
+              <div className="location-desktop-divider">
+                <p className={`eyebrow ${location.id === 'center-city' ? 'trainer-location-center' : 'trainer-location-newtown'}`}>{location.shortName}</p>
+                <span />
+              </div>
+            ) : null}
             <div className="location-mobile-divider lg:hidden">
               <p className={`eyebrow ${location.id === 'center-city' ? 'trainer-location-center' : 'trainer-location-newtown'}`}>{location.shortName}</p>
               <span />
